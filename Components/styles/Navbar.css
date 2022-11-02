@@ -126,6 +126,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border: none;
     border-radius: 6px 0px 0px 6px;
+    outline: none;
 }
 
 .search_btn {
