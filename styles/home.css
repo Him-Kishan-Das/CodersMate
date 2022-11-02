@@ -171,4 +171,60 @@
 
 }
 
-/* End of Section  */
+/* End of Section 1 */
+
+/* Start of Section 2 */
+.section2{
+    display: flex;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40rem;
+    color: white;
+    padding: 25px;
+}
+.name{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.num{
+    font-size: 18px;
+}
+#categories{
+    background-color: #431289;
+}
+
+.block_icon{
+    width: 1.4rem;
+    -webkit-filter: invert();
+    padding-bottom: 20px;
+}
+
+#queries{
+    background-color: #3e0f77;
+}
+
+#replies{
+    background-color: #360e69;
+}
+
+#registered_Users{
+    background-color: #310c5f;
+}
+
+
+@media screen and (max-width: 768px) {
+    .section2{
+        min-width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+}
