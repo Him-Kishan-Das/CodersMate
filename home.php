@@ -26,9 +26,7 @@
                 <button class="section_searchBtn">Search</button>
             </div>
         </div>
-        <div>
-            <img class="section_img" src="./img/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg" alt="codingImage">
-        </div>
+        <img class="section_img" src="./img/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg" alt="codingImage">
     </div>
 
 
@@ -55,6 +53,22 @@
             <p class="name">Registered Users</p>
         </div>
     </div>
+
+
+    <!-- Section - 3 -->
+    <div class="section3">
+        <img class="section3_img" src="./img/joshua-reddekopp-SyYmXSDnJ54-unsplash.jpg" alt="coding image">
+        <div class="part2">
+            <p class="para2">
+                This forum contains various topics like programming languages and frameworks.
+                <br>
+            </p>
+            <p class="subtext">Click on Explore to ask queries.</p>
+            <button class="exploreBtn">Explore</button>
+        </div>
+    </div>
+
+    
 </body>
 
 <script src="./scripts/home.js"></script>

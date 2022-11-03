@@ -6,11 +6,15 @@
 
 
 .navbar {
+    position: fixed;
+    z-index: 1;
+   width: 100%;
     display: flex;
     background-color: rgb(87, 6, 141);
     padding: 10px;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .logo {
@@ -180,6 +184,7 @@
     .navbar {
         display: flex;
         flex-direction: column;
+        position: sticky;
     }
 
     .logo {
