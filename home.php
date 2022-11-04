@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coder's Mate</title>
+    <title>Coder's Mate - Home</title>
     <link rel="stylesheet" href="./styles/home.css">
 </head>
 
@@ -64,7 +64,9 @@
                 <br>
             </p>
             <p class="subtext">Click on Explore to ask queries.</p>
-            <button class="exploreBtn">Explore</button>
+            <a href="./topics.php">
+                <button class="exploreBtn">Explore</button>
+            </a>
         </div>
     </div>
 

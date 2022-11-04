@@ -10,9 +10,9 @@ echo '<nav class="navbar">
 <div class="nav-left-elements">
     <img class="logo" src="./icons/logo-no-background.png" alt="Coder\'s Mate Logo">
     <ul class="navbar-elements">
-        <li class="nav-link"><a class="nav-link-elem" href="#">Home</a></li>
+        <li class="nav-link"><a class="nav-link-elem" href="./home.php">Home</a></li>
         <li class="nav-link"><a class="nav-link-elem" href="#">About</a></li>
-        <li class="nav-link"><a class="nav-link-elem" href="#">Topics</a></li>
+        <li class="nav-link"><a class="nav-link-elem" href="./topics.php">Topics</a></li>
         <!-- Drop down element of the navbar  -->
         <div class="dropdown nav-link">
             <button class="dropbtn" onclick="dropDown()">Top Categories
