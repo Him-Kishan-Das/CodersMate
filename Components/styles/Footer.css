@@ -1,0 +1,36 @@
+footer{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about_para{
+    padding: 2rem;
+    /* width: 50rem; */
+}
+
+.contact{
+    display: flex;
+    padding: 10px;
+    width: 50rem;
+    flex-direction: row-reverse;
+    padding: 20px;
+}
+
+.envelope{
+    width: 1.5rem;
+    -webkit-filter: invert();
+}
+
+.contact_para{
+    padding: 20px;
+}

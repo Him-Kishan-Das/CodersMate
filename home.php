@@ -68,7 +68,9 @@
         </div>
     </div>
 
-    
+    <?php  
+        include './Components/Footer.php'
+    ?>
 </body>
 
 <script src="./scripts/home.js"></script>
