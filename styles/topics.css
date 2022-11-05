@@ -22,10 +22,12 @@
     width: 100%;
     background-color: rgb(198, 206, 243);
     border: 1px solid black;
+    margin-bottom: 10px;
 }
 
 .card-img{
     width: 15rem;
+    max-height: 13rem;
     padding-right: 20px;
 }
 
