@@ -48,13 +48,13 @@ echo '<nav class="navbar">
             <label for="loginPassword" class="modalText">Password</label>
             <input type="password" name="loginPassword" class="modalInput" id="loginPassword">
             <button class="modalBtn">LOGIN</button>
-            <p class="modalSignUp">Dont\'t have an account?<a href="#"> SignUp Now</a> </p>
+            <p class="modalSignUp">Dont\'t have an account?<a href="./signup.php"> SignUp Now</a> </p>
         </form>
     </div>
 
     </div>
 
-    <button class="signup-btn nav-btn">Sign Up</button>
+    <button class="signup-btn nav-btn"><a class="signup" href="./signup.php">Sign Up</a></button>
     </div>
 </div>
 
