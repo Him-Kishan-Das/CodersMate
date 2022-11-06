@@ -37,7 +37,7 @@
                         <h1 class="card_heading">' . $title . '</h1>
                         <p class="card_para">' . substr($desc, 0, 200) .'...</p>
                         <div class="card-details">
-                            <button class="card_btn">View Queries</button>
+                            <a href="./query.php?catName='. $title .'"><button class="card_btn">View Queries</button></a>
                             <div class="stats">
                                 <div class="stats-details">
                                     <p class="number">10</p>
@@ -75,7 +75,7 @@
                         <h1 class="card_heading">'. $title .'</h1>
                         <p class="card_para">' . substr($desc, 0, 200) .'...</p>
                         <div class="card-details">
-                            <button class="card_btn">View Queries</button>
+                        <a href="./query.php?catName='. $title .'"><button class="card_btn">View Queries</button></a>
                             <div class="stats">
                                 <div class="stats-details">
                                     <p class="number">10</p>
