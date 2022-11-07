@@ -110,3 +110,51 @@
     color: black;
     background-color: rgb(144, 230, 14);
 }
+
+.queryList{
+    width: 95%;
+    margin: 35px auto;
+}
+
+.queryListHeading{
+    font-size: 30px;
+    margin: 20px 0px;
+}
+
+
+.query{
+    display: flex;
+    margin: 15px 0px;
+}
+
+.userProfile{
+    width: 2.5rem;
+    height: 2rem;
+}
+
+.queryDetails{
+    margin: 0px 15px;
+}
+
+.queryTitle{
+    color: rgb(10, 124, 231);
+    font-weight: 500;
+}
+
+.queryTitle:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.userName{
+    font-size: 14px;
+    color: rgb(128, 128, 128);
+    margin-top: 5px;
+}
+
+.queryStats{
+    display: flex;
+    margin-left: auto;
+    margin-right: 10rem;
+}
+

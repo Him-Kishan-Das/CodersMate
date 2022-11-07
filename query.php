@@ -42,6 +42,28 @@ $cat_name = $_GET['catName'];
             </form>
         </div>
 
+        <div class="queryList">
+            <h2 class="queryListHeading">Browse Queries</h2>
+
+            <hr>
+            <div class="query">
+                <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
+                <div class="queryDetails">
+                    <h3 class="queryTitle">
+                        Unable to install pyaudio. 
+                    </h3>
+                    <p class="userName">him-kishan . Oct 17 2022</p>
+                </div>
+                <div class="queryStats">
+                    <h4 class="queryStatsTitle">Answers: </h4>
+                    <p class="queryStatsValue">10</p>
+                </div>
+            </div>
+        
+
+
+        </div>
+
     </div>
 
     <?php
