@@ -1,6 +1,6 @@
 <style>
     <?php
-    include './Components/styles/Footer.css'
+        include './Components/styles/Footer.css';
     ?>
 </style>
 

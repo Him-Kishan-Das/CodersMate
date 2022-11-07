@@ -2,3 +2,111 @@
     margin: 0;
     padding: 0;
 }
+
+.container{
+    padding-top: 100px;
+}
+
+.block {
+    background: linear-gradient(87deg, #8de9ea, #f7a2dd, #f7a2a2, #a2baf7);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 43s ease infinite;
+    -moz-animation: AnimationName 43s ease infinite;
+    -o-animation: AnimationName 43s ease infinite;
+    animation: AnimationName 43s ease infinite;
+
+    width: 93%;
+    margin: 0px auto;
+    padding: 25px 20px;
+    margin-bottom: 10px;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.title{
+    font-size: 38px;
+}
+
+.para{
+    font-size: 18px;
+    padding: 4px 0px;
+}
+
+
+.queryBtn{
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    background: rgb(237, 155, 3);
+    font-size: 18px;
+    padding: 7px 15px;
+    color: white;
+    font-weight: 500;
+    border: 1px solid rgb(221, 144, 1);
+}
+
+.queryBtn:hover{
+    cursor: pointer;
+    background: rgb(249, 180, 51);
+    color: black;
+}
+
+#queryForm{
+    display: none;
+    margin: 40px 20px;
+    padding: 10px;
+}
+
+.formFields{
+    display: flex;
+    flex-direction: column;
+}
+
+.queryText{
+    font-size: 20px;
+    margin: 15px 0px;
+    font-weight: 600;
+}
+
+.queryInput{
+    font-size: 18px;
+    padding: 10px;
+    outline: none;
+}
+
+.querySubmitBtn{
+    border: none;
+    border-radius: 5px;
+    margin: 20px 0px;
+    width: 6rem;
+    font-size: 20px;
+    padding: 8px 15px;
+    background: green;
+    color: white;
+}
+
+.querySubmitBtn:hover{
+    cursor: pointer;
+    color: black;
+    background-color: rgb(144, 230, 14);
+}

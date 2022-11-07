@@ -8,13 +8,14 @@
 .navbar {
     position: fixed;
     z-index: 1;
-   width: 100%;
+    width: 100%;
     display: flex;
     background-color: rgb(87, 6, 141);
     padding: 10px;
     justify-content: space-between;
     align-items: center;
-    
+    margin-bottom: 20px;
+
 }
 
 .logo {
