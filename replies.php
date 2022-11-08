@@ -14,14 +14,20 @@
     include './Components/Navbar.php';
     include './Components/dbconnect.php'
     ?>
-
     <div class="container">
+
+    <?php
+        $id = $_GET['queryId'];
+        $sql = "SELECT * FROM `queries` WHERE query_id = '$id'";
+        $result = mysqli_query($conn, $sql);
+        while($row = mysqli_fetch_assoc($result)){
+            $queryTitle = $row['query_title'];
+            $queryDesc = $row['query_desc'];
+        }
+    ?>
         <div class="block">
-
-
-
-            <h2 class="title">Welcome to Forums</h2>
-            <p class="para"> related queries and topics should be posted/found in this page of the forum.</p>
+            <h2 class="title"><?php echo $queryTitle ?></h2>
+            <p class="para"><?php echo $queryDesc  ?></p>
             <div class="user">
                 <h2 class="posted">Posted by : </h2>
                 <p class="userName">him-kishan . </p>

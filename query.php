@@ -51,27 +51,32 @@ $cat_name = $_GET['catName'];
             $cat_name = $_GET['catName'];
             $sql = "SELECT * FROM `queries` WHERE query_cat_name = '$cat_name'";
             $result = mysqli_query($conn, $sql);
+            $noContent = true;
             while ($row = mysqli_fetch_assoc($result)) {
+                $noContent = false;
                 $id = $row['query_id'];
                 $title = $row['query_title'];
                 $desc = $row['query_desc'];
                 $query_user_id = $row['query_user_id'];
                 $query_time = $row['timestamp'];
+                    echo '<hr>
+                        <div class="query">
+                            <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
+                            <div class="queryDetails">
+                                <h3 ><a class="queryTitle" href="./replies.php?queryId=' . $id . '"> ' . $title . ' </a>
+                                </h3>
+                                <p class="queryDesc">' . substr($desc, 0, 100) . '...</p>
+                                <p class="userName">him-kishan . ' . $query_time . '</p>
+                            </div>
+                            <div class="queryStats">
+                                <h4 class="queryStatsTitle">Answers: </h4>
+                                <p class="queryStatsValue">10</p>
+                            </div>
+                        </div>';
+            }
 
-                echo '<hr>
-            <div class="query">
-                <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
-                <div class="queryDetails">
-                    <h3 ><a class="queryTitle" href="./replies.php?queryId=' . $id .'"> '. $title . ' </a>
-                    </h3>
-                    <p class="queryDesc">' . substr($desc, 0, 100) .'...</p>
-                    <p class="userName">him-kishan . '. $query_time .'</p>
-                </div>
-                <div class="queryStats">
-                    <h4 class="queryStatsTitle">Answers: </h4>
-                    <p class="queryStatsValue">10</p>
-                </div>
-            </div>';
+            if($noContent){
+                echo '<h3 class="emptyMessage">No ' . $cat_name . ' related queries asked till now.</h3>';
             }
             ?>
 
