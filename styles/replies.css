@@ -52,8 +52,12 @@
     padding: 4px 0px;
 }
 
+.posted{
+    font-size: 19px;
+}
 
-.queryBtn{
+
+.replyBtn{
     margin-top: 10px;
     border-radius: 5px;
     border: none;
@@ -65,7 +69,7 @@
     border: 1px solid rgb(221, 144, 1);
 }
 
-.queryBtn:hover{
+.replyBtn:hover{
     cursor: pointer;
     background: rgb(249, 180, 51);
     color: black;
@@ -94,7 +98,7 @@
     outline: none;
 }
 
-.querySubmitBtn{
+.replySubmitBtn{
     border: none;
     border-radius: 5px;
     margin: 20px 0px;
@@ -105,53 +109,53 @@
     color: white;
 }
 
-.querySubmitBtn:hover{
+.replySubmitBtn:hover{
     cursor: pointer;
     color: black;
     background-color: rgb(144, 230, 14);
 }
 
-.queryList{
+.replyList{
     width: 95%;
     margin: 35px auto;
 }
 
-.queryListHeading{
+.replyListHeading{
     font-size: 30px;
     margin: 20px 0px;
 }
-
 
 .query{
     display: flex;
     margin: 15px 0px;
 }
 
-.userProfile{
-    width: 2.5rem;
-    height: 2rem;
-}
 
-.queryDetails{
+.replyDetails{
     margin: 0px 15px;
 }
 
-.queryTitle{
-    color: rgb(10, 124, 231);
-    font-weight: 500;
-    text-decoration: none;
+.replyDesc{
+    font-size: 17px;
 }
-
 
 .queryTitle:hover{
     cursor: pointer;
-    text-decoration: underline 1.3px;
+    text-decoration: underline;
 }
 
-.queryDesc{
-    color: rgb(68, 68, 68);
-    padding-top: 5px;
+.user{
+    display: flex;
+    padding: 10px 0px;
+    float: right;
 }
+
+.userProfile{
+    width: 2rem;
+    height: 1.5rem;
+    padding: 5px;
+}
+
 
 .userName{
     font-size: 14px;
