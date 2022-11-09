@@ -22,6 +22,25 @@ $cat_name = $_GET['catName'];
 
     <div class="container">
 
+    <?php
+        $method = $_SERVER["REQUEST_METHOD"];
+        $alert = false;
+        if($method == 'POST'){
+            $queryTitle = $_POST['queryTitle'];
+            $queryDesc = $_POST['queryDesc'];
+            $sql = "INSERT INTO `queries` (`query_title`, `query_desc`, `query_cat_name`, `query_user_id`, `query_time`) VALUES ('$queryTitle', '$queryDesc', '$cat_name', '0', current_timestamp());";
+            $result = mysqli_query($conn, $sql);
+            $alert = true;
+            if($alert){
+                echo ' <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                            <strong>Query Submitted Successfully!</strong>
+                        </div>'; 
+            }
+        }
+        
+    ?>
+
         <div class="block">
 
             <h2 class="title">Welcome to <?php echo $cat_name; ?> Forums</h2>
@@ -30,14 +49,14 @@ $cat_name = $_GET['catName'];
         </div>
 
         <div id="queryForm">
-            <form action="" class="formFields" method="post">
+            <form action="<?php $_SERVER['REQUEST_URI']  ?>" class="formFields" method="post">
                 <label for="queryTitle" class="queryText">Query Title</label>
 
-                <input name="queryTitle" type="text" class="queryInput" id="queryInputTitle" placeholder="Enter your query">
+                <input required name="queryTitle" type="text" class="queryInput" id="queryInputTitle" placeholder="Enter your query">
 
                 <label for="queryDesc" class="queryText">Query Description</label>
 
-                <textarea placeholder="Enter query description" class="queryInput" id="queryInputDesc" name="queryDesc" cols="30" rows="5"></textarea>
+                <textarea required placeholder="Enter query description" class="queryInput" id="queryInputDesc" name="queryDesc" cols="30" rows="5"></textarea>
 
                 <button class="querySubmitBtn">Submit</button>
             </form>
@@ -58,7 +77,7 @@ $cat_name = $_GET['catName'];
                 $title = $row['query_title'];
                 $desc = $row['query_desc'];
                 $query_user_id = $row['query_user_id'];
-                $query_time = $row['timestamp'];
+                $query_time = $row['query_time'];
                     echo '<hr>
                         <div class="query">
                             <img class="userProfile" src="./icons/userdefault.png" alt="user profile">

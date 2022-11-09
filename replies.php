@@ -16,30 +16,52 @@
     ?>
     <div class="container">
 
-    <?php
-        $id = $_GET['queryId'];
-        $sql = "SELECT * FROM `queries` WHERE query_id = '$id'";
+        <?php
+        $query_id = $_GET['queryId'];
+        $sql = "SELECT * FROM `queries` WHERE query_id = '$query_id'";
         $result = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_assoc($result)){
+        while ($row = mysqli_fetch_assoc($result)) {
             $queryTitle = $row['query_title'];
             $queryDesc = $row['query_desc'];
         }
-    ?>
+        ?>
+
+        <!-- Insetion of replies of a thread to the database -->
+        <?php
+        $method = $_SERVER["REQUEST_METHOD"];
+        $alert = false;
+        if ($method == 'POST') {
+            $formDesc = $_POST['answer'];
+            $sql1 = "INSERT INTO `replies` (`reply_desc`, `query_id`, `reply_user_id`, `reply_time`) VALUES ('$formDesc', '$query_id', '0', current_timestamp())";
+            mysqli_query($conn, $sql1);
+            $alert = true;
+        }
+        if ($alert) {
+            echo ' <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                        <strong>Reply Submitted Successfully!</strong>
+                    </div>';
+       }
+
+        ?>
         <div class="block">
             <h2 class="title"><?php echo $queryTitle ?></h2>
             <p class="para"><?php echo $queryDesc  ?></p>
+            <button class="replyBtn" onclick="askQuery()">Post Reply</button>
             <div class="user">
                 <h2 class="posted">Posted by : </h2>
                 <p class="userName">him-kishan . </p>
             </div>
-            <button class="replyBtn" onclick="askQuery()">Post Reply</button>
+            
         </div>
 
+
+
         <div id="queryForm">
-            <form action="" class="formFields" method="post">
+            <form action="<?php $_SERVER['REQUEST_URI'] ?>" class="formFields" method="post">
                 <label for="queryDesc" class="queryText">Post Reply</label>
 
-                <textarea placeholder="Enter a Solution" class="queryInput" id="queryInputDesc" name="queryDesc" cols="30" rows="5"></textarea>
+                <textarea placeholder="Enter a Solution" class="queryInput" id="queryInputDesc" name="answer" cols="30" rows="5"></textarea>
 
                 <button class="replySubmitBtn">Submit</button>
             </form>
@@ -49,22 +71,27 @@
             <h2 class="replyListHeading">Replies</h2>
 
 
-            <hr>
-            <div class="query">
-
-                <div class="replyDetails">
-                    <p class="replyDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, magnam voluptas vel quidem facere aperiam sapiente nobis fugit sint, officiis deserunt eaque esse voluptatem at excepturi harum consequatur maiores voluptatum.
-                        dhsfjh sdajf
-                        sdjhf jkhsadjkfh
-                    </p>
-                    <div class="user">
-                        <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
-                        <p class="userName">him-kishan . </p>
-                    </div>
-
-                </div>
-
-            </div>
+            <?php
+            $sql2 = "SELECT * FROM `replies` WHERE query_id = '$query_id'";
+            $result = mysqli_query($conn, $sql2);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $replyDesc = $row['reply_desc'];
+                $replyTime = $row['reply_time'];
+                echo '<hr>
+                    <div class="query">
+                        <div class="replyDetails">
+                            <p class="replyDesc">' . $replyDesc . '
+                            </p>
+                            <div class="user">
+                                <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
+                                <p class="userName">him-kishan  &nbsp; </p>
+                                <p class="userName">' . $replyTime . '</p>
+                            </div>
+                        </div>
+                        
+                    </div>';
+            }
+            ?>
 
         </div>
 

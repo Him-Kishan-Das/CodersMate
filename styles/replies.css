@@ -4,7 +4,7 @@
 }
 
 .container{
-    padding-top: 100px;
+    padding-top: 72px;
 }
 
 .block {
@@ -17,7 +17,7 @@
     animation: AnimationName 43s ease infinite;
 
     width: 93%;
-    margin: 0px auto;
+    margin: 10px auto;
     padding: 25px 20px;
     margin-bottom: 10px;
 }
@@ -147,7 +147,8 @@
 .user{
     display: flex;
     padding: 10px 0px;
-    float: right;
+    position: relative;
+    left: 60rem;
 }
 
 .userProfile{
@@ -169,3 +170,28 @@
     margin-right: 10rem;
 }
 
+
+/* alert css  */
+.alert {
+    padding: 20px;
+    background-color: #0bce28;
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+ 
+  .closebtn:hover {
+    color: black;
+  }
