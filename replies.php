@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +47,7 @@
         ?>
         <div class="block">
             <h2 class="title"><?php echo $queryTitle ?></h2>
-            <p class="para"><?php echo $queryDesc  ?></p>
+            <pre class="para" style="white-space: pre-wrap"><?php echo $queryDesc  ?></pre>
             <button class="replyBtn" onclick="askQuery()">Post Reply</button>
             <div class="user">
                 <h2 class="posted">Posted by : </h2>
@@ -61,7 +62,7 @@
             <form action="<?php $_SERVER['REQUEST_URI'] ?>" class="formFields" method="post">
                 <label for="queryDesc" class="queryText">Post Reply</label>
 
-                <textarea placeholder="Enter a Solution" class="queryInput" id="queryInputDesc" name="answer" cols="30" rows="5"></textarea>
+                <textarea placeholder="Enter a Solution" class="queryInput" id="queryInputDesc" name="answer" cols="30" rows="5" style="white-space: pre-wrap;"></textarea>
 
                 <button class="replySubmitBtn">Submit</button>
             </form>
@@ -74,14 +75,16 @@
             <?php
             $sql2 = "SELECT * FROM `replies` WHERE query_id = '$query_id'";
             $result = mysqli_query($conn, $sql2);
+            $noReplies = true;
             while ($row = mysqli_fetch_assoc($result)) {
+                $noReplies = false;
                 $replyDesc = $row['reply_desc'];
                 $replyTime = $row['reply_time'];
                 echo '<hr>
                     <div class="query">
                         <div class="replyDetails">
-                            <p class="replyDesc">' . $replyDesc . '
-                            </p>
+                            <pre class="replyDesc" style="white-space: pre-wrap">' . $replyDesc . '
+                            </pre>
                             <div class="user">
                                 <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
                                 <p class="userName">him-kishan  &nbsp; </p>
@@ -90,6 +93,10 @@
                         </div>
                         
                     </div>';
+            }
+
+            if($noReplies){
+                echo '<h3 class="emptyMessage">No answers to this query till now.</h3>';
             }
             ?>
 

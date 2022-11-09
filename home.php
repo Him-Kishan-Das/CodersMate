@@ -12,6 +12,7 @@
 <body>
 
     <?php
+    include './Components/dbconnect.php';
     include './Components/Navbar.php'
     ?>
 
@@ -29,22 +30,37 @@
         <img class="section_img" src="./img/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg" alt="codingImage">
     </div>
 
+    <?php
+        $sql = "SELECT * FROM `categories`";
+        $result = mysqli_query($conn, $sql);
+        $topics = mysqli_num_rows($result);
+
+        $sql1 = "SELECT * FROM `queries` ";
+        $result1 = mysqli_query($conn, $sql1);
+        $queries = mysqli_num_rows($result1);
+        
+
+        $sql2 = "SELECT * FROM `replies`";
+        $result2 = mysqli_query($conn, $sql2);
+        $replies = mysqli_num_rows($result2);
+
+    ?>
 
     <!-- Section - 2 -->
     <div class="section2">
         <div class="block" id="categories">
             <img src="./icons/code-solid.svg" alt="code_icon" class="block_icon">
-            <p class="num">10</p>
+            <p class="num"><?php echo $topics ?></p>
             <p class="name">Topics</p>
         </div>
         <div class="block" id="queries">
             <img src="./icons/clipboard-question-solid.svg" alt="clipboard_icon" class="block_icon">
-            <p class="num">50</p>
+            <p class="num"><?php echo $queries ?></p>
             <p class="name">Queries</p>
         </div>
         <div class="block" id="replies">
             <img src="./icons/reply-solid.svg" alt="reply_icon" class="block_icon">
-            <p class="num">100</p>
+            <p class="num"><?php echo $replies ?></p>
             <p class="name">Replies</p>
         </div>
         <div class="block" id="registered_Users">

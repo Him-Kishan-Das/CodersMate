@@ -82,7 +82,7 @@ $cat_name = $_GET['catName'];
                         <div class="query">
                             <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
                             <div class="queryDetails">
-                                <h3 ><a class="queryTitle" href="./replies.php?queryId=' . $id . '"> ' . $title . ' </a>
+                                <h3 ><a class="queryTitle" href="./replies.php?catName='. $cat_name .'&queryId=' . $id . '"> ' . $title . ' </a>
                                 </h3>
                                 <p class="queryDesc">' . substr($desc, 0, 100) . '...</p>
                                 <p class="userName">him-kishan . ' . $query_time . '</p>
