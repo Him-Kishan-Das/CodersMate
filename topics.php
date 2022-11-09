@@ -95,6 +95,28 @@
 
             </div>
         </div>
+
+        <!-- Recent Section  -->
+
+        <div class="recent">
+            <h1 class="recentHeading">Recent</h1>
+
+            <div class="recentList">
+                <div class="recentCard">
+                    <img src="" alt="">
+                    <div class="recentDetails">
+                        <a href=""><div class="recentTitle">I am a title</div></a>
+                        <div class="recentDesc">I am a description of the recent post added to this website</div>
+                        <div class="userDetails">
+                            <div class="userImage"></div>
+                            <p class="userName"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 
