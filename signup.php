@@ -47,7 +47,7 @@
                     $sql = "INSERT INTO `users` (`user_name`, `user_email`, `user_password`,`signup_time`) VALUES ('$userName', '$email', '$finalPassword',current_timestamp())";
                     $result2 = mysqli_query($conn, $sql);
                     if ($result2) {
-                        echo '<h2 class="success">Sign up successfull!! <a href="./home.php"> Click Here</a></h2>';
+                        echo '<h2 class="success">Sign up successfull!! <a href="./home.php"> Click Here</a> and Login</h2>';
                     }
                 } else {
                     echo '<h2 class="error">*Email already exist</h2>';
@@ -55,7 +55,7 @@
             }
 
             ?>
-            <h2 class="success">Sign up successfull!! <a href="./home.php"> Click Here</a></h2>
+            
             <form class="signupForm" action="<?php $_SERVER['REQUEST_URI'] ?>" method="post">
                 <label for="signupUserName" class="formText">Username</label>
                 <input type="text" name="signupUserName" id="userName" class="formInput">

@@ -41,7 +41,8 @@ echo '<nav class="navbar">
     <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <form action="" method="post" class="loginForm">
+
+        <form action="./Components/loggingIn.php" method="post" class="loginForm">
             <h2 class="modalHeading">Login</h2>
             <label for="loginEmail" class="modalText">Email</label>
             <input type="email" name="loginEmail" class="modalInput" id="loginEmail">
