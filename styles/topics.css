@@ -5,6 +5,7 @@
 
 .main{
     padding-top: 80px;
+    display: flex;
 }
 .section1{
     margin: 20px;
@@ -67,4 +68,36 @@
     align-items: center;
     padding: 0px 13px;
     color: rgb(66, 66, 66);
+}
+
+.recent{
+    width: 25rem;
+}
+
+.recentHeading{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.recentList{
+    border: solid 2px black;
+}
+
+.recentCard{
+    background: #f8e2e4;
+    border: solid 1px black;
+    margin: 8px;
+    padding: 0px 6px;
+}
+
+.recentTitle{
+    font-size: 17px;
+}
+
+.recentDesc{
+    font-size: 14px;
+}
+
+.userDetails{
+    margin-left: 15rem;
 }

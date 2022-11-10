@@ -32,12 +32,12 @@
                     $type = $row['category_type'];
                     if ($type == 'programming') {
                         echo '<div class="card">
-                        <img src="./img/'. $title .'.jpg" alt="'. $title .' image" class="card-img">
+                        <img src="./img/' . $title . '.jpg" alt="' . $title . ' image" class="card-img">
                         <div class="card_container">
                         <h1 class="card_heading">' . $title . '</h1>
-                        <p class="card_para">' . substr($desc, 0, 200) .'...</p>
+                        <p class="card_para">' . substr($desc, 0, 200) . '...</p>
                         <div class="card-details">
-                            <a href="./query.php?catName='. $title .'"><button class="card_btn">View Queries</button></a>
+                            <a href="./query.php?catName=' . $title . '"><button class="card_btn">View Queries</button></a>
                             <div class="stats">
                                 <div class="stats-details">
                                     <p class="number">10</p>
@@ -60,22 +60,22 @@
             <!-- Frameworks  -->
             <h1>FrameWorks</h1>
             <div class="program">
-            <?php
-            $sql = "SELECT * FROM `categories`";
-            $result = mysqli_query($conn, $sql);
+                <?php
+                $sql = "SELECT * FROM `categories`";
+                $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
                     $id = $row['category_id'];
                     $title = $row['category_name'];
                     $desc = $row['category_description'];
                     $type = $row['category_type'];
                     if ($type == 'framework') {
-                    echo '<div class="card">
-                    <img src="./img/'. $title .'.jpg" alt="'. $title .' image" class="card-img">
+                        echo '<div class="card">
+                    <img src="./img/' . $title . '.jpg" alt="' . $title . ' image" class="card-img">
                     <div class="card_container">
-                        <h1 class="card_heading">'. $title .'</h1>
-                        <p class="card_para">' . substr($desc, 0, 200) .'...</p>
+                        <h1 class="card_heading">' . $title . '</h1>
+                        <p class="card_para">' . substr($desc, 0, 200) . '...</p>
                         <div class="card-details">
-                        <a href="./query.php?catName='. $title .'"><button class="card_btn">View Queries</button></a>
+                        <a href="./query.php?catName=' . $title . '"><button class="card_btn">View Queries</button></a>
                             <div class="stats">
                                 <div class="stats-details">
                                     <p class="number">10</p>
@@ -96,25 +96,70 @@
             </div>
         </div>
 
-        <!-- Recent Section  -->
+        <!-- Recent Query Section  -->
 
         <div class="recent">
-            <h1 class="recentHeading">Recent</h1>
-
+            <h1 class="recentHeading">Recent Queries</h1>
             <div class="recentList">
-                <div class="recentCard">
-                    <img src="" alt="">
-                    <div class="recentDetails">
-                        <a href=""><div class="recentTitle">I am a title</div></a>
-                        <div class="recentDesc">I am a description of the recent post added to this website</div>
-                        <div class="userDetails">
-                            <div class="userImage"></div>
-                            <p class="userName"></p>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                $sql1 = "SELECT * FROM `queries` ORDER BY query_time DESC LIMIT 6";
+                $result1 = mysqli_query($conn, $sql1);
+                while ($row = mysqli_fetch_assoc($result1)) {
+                    $query_id = $row['query_id'];
+                    $recentTitle = $row['query_title'];
+                    $recentDesc = $row['query_desc'];
+                    $catName = $row['query_cat_name'];
+                    echo '<div class="recentCard">
+                                <img src="" alt="">
+                                <div class="recentDetails">
+                                    <a href="./replies.php?catName='. $catName .'&queryId='. $query_id .'"><div class="recentTitle">' . $recentTitle . '</div></a>
+                                    <div class="recentDesc">
+                                        ' . substr($recentDesc, 0, 50) . '...
+                                    </div>
+                                    <div class="userDetails">
+                                        <div class="userImage"></div>
+                                        <p class="userName">him-kishan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ';
+                }
+                ?>
             </div>
+
+            <!-- Recent Reply Section  -->
+            <!-- <h1 class="recentHeading">Recent Reply</h1>
+            <div class="recentList">
+                <?php
+                $sql2 = "SELECT * FROM `replies` ORDER BY reply_time DESC LIMIT 6";
+                $result2 = mysqli_query($conn, $sql2);
+                while ($row = mysqli_fetch_assoc($result2)) {
+                    $recentTitle = $row['query_title'];
+                    $recentDesc = $row['query_desc'];
+                    echo '<div class="recentCard">
+                                <img src="" alt="">
+                                <div class="recentDetails">
+                                    <a href=""><div class="recentTitle">' . $recentTitle . '</div></a>
+                                    <div class="recentDesc">
+                                        ' . substr($recentDesc, 0, 50) . '...
+                                    </div>
+                                    <div class="userDetails">
+                                        <div class="userImage"></div>
+                                        <p class="userName">him-kishan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ';
+                }
+                ?>
+            </div> -->
+
         </div>
+
+
+
+
+    </div>
 
 
     </div>
