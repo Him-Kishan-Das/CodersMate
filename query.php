@@ -28,7 +28,7 @@ $cat_name = $_GET['catName'];
         if($method == 'POST'){
             $queryTitle = $_POST['queryTitle'];
             $queryDesc = $_POST['queryDesc'];
-            $sql = "INSERT INTO `queries` (`query_title`, `query_desc`, `query_cat_name`, `query_user_id`, `query_time`) VALUES ('$queryTitle', '$queryDesc', '$cat_name', '0', current_timestamp());";
+            $sql = "INSERT INTO `queries` (`query_title`, `query_desc`, `query_cat_name`, `query_user_id`, `query_time`) VALUES ('$queryTitle', '$queryDesc', '$cat_name', '0', current_timestamp())";
             $result = mysqli_query($conn, $sql);
             $alert = true;
             if($alert){

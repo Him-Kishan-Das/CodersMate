@@ -39,6 +39,26 @@
     padding-bottom: 20px;
 }
 
+.error{
+    background-color: rgb(250, 206, 206);
+    color: rgb(208, 0, 0);
+    padding: 8px;
+    width: 29rem;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 auto;
+}
+
+.success{
+    background: rgb(129, 232, 129);
+    color: rgb(4, 46, 4);
+    font-size: 20px;
+    padding: 8px;
+    width: 29rem;
+    font-weight: 500;
+    margin: 0 auto;
+}
+
 .signupForm {
     display: flex;
     flex-direction: column;
