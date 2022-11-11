@@ -1,12 +1,13 @@
+<?php
+    session_start();
+?>
 <style>
     <?php
     include './Components/styles/Navbar.css'
     ?>
 </style>
-
-
-
 <?php
+
 echo '<nav class="navbar">
 <div class="nav-left-elements">
     <img class="logo" src="./icons/logo-no-background.png" alt="Coder\'s Mate Logo">
@@ -35,32 +36,62 @@ echo '<nav class="navbar">
         <button class="search_btn">
             <img class="search-icon" src="./icons/magnifying-glass-solid.svg" alt="search icon">
         </button>
-    </div>
-    <div>
-    <button class="nav-btn" id="myBtn">Login</button>
-    <div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
+    </div>';
 
-        <form action="./Components/loggingIn.php" method="post" class="loginForm">
-            <h2 class="modalHeading">Login</h2>
-            <label for="loginEmail" class="modalText">Email</label>
-            <input type="email" name="loginEmail" class="modalInput" id="loginEmail">
-            <label for="loginPassword" class="modalText">Password</label>
-            <input type="password" name="loginPassword" class="modalInput" id="loginPassword">
-            <button class="modalBtn">LOGIN</button>
-            <p class="modalSignUp">Dont\'t have an account?<a href="./signup.php"> SignUp Now</a> </p>
-        </form>
-    </div>
+if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
+    $email = $_SESSION['userEmail'];
+    $sql = "SELECT * FROM `users` WHERE user_email = '$email'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $userName = $row['user_name'];
+    echo '<div class="dropdown nav-link">
+            <button class="dropbtn" onclick="dropDown()"><img class="nav_profile" src="./icons/user-solid.svg">
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content profile-content" id="myDropdown">
+            <div class="hl"></div>
+                <p class="profile_name">'. $userName .'</p>
+                <hr>
+                <a class="drop_down_link" href="#">
+                    <img class="drop_down_img" src="./icons/user-solid.svg">
+                    My Profile
+                </a>
+                <a class="drop_down_link" href="#">
+                    <img class="drop_down_img" src="./icons/arrow-right-from-bracket-solid.svg">
+                    Log Out
+                </a>
+            </div>
+        </div>';
+    // echo $_SESSION['userEmail'];
+}
 
-    </div>
-
-    <button class="signup-btn nav-btn"><a class="signup" href="./signup.php">Sign Up</a></button>
-    </div>
-</div>
 
 
-</nav>';
+else {
+    echo '<div>
+            <button class="nav-btn" id="myBtn">Login</button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+
+                    <form action="./Components/loggingIn.php" method="post" class="loginForm">
+                        <h2 class="modalHeading">Login</h2>
+                        <label for="loginEmail" class="modalText">Email</label>
+                        <input type="email" name="loginEmail" class="modalInput" id="loginEmail">
+                        <label for="loginPassword" class="modalText">Password</label>
+                        <input type="password" name="loginPassword" class="modalInput" id="loginPassword">
+                        <button class="modalBtn">LOGIN</button>
+                        <p class="modalSignUp">Dont\'t have an account?<a href="./signup.php"> SignUp Now</a> </p>
+                    </form>
+                </div>
+
+            </div>
+            <button class="signup-btn nav-btn"><a class="signup" href="./signup.php">Sign Up</a></button>
+        </div>';
+}
+
+echo '</div>
+    </nav>';
 
 ?>
 
@@ -93,4 +124,3 @@ window.onclick = function(event) {
 }
      </script>';
 ?>
-
