@@ -22,24 +22,24 @@ $cat_name = $_GET['catName'];
 
     <div class="container">
 
-    <?php
+        <?php
         $method = $_SERVER["REQUEST_METHOD"];
         $alert = false;
-        if($method == 'POST'){
+        if ($method == 'POST') {
             $queryTitle = $_POST['queryTitle'];
             $queryDesc = $_POST['queryDesc'];
             $sql = "INSERT INTO `queries` (`query_title`, `query_desc`, `query_cat_name`, `query_user_id`, `query_time`) VALUES ('$queryTitle', '$queryDesc', '$cat_name', '0', current_timestamp())";
             $result = mysqli_query($conn, $sql);
             $alert = true;
-            if($alert){
+            if ($alert) {
                 echo ' <div class="alert">
                             <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
                             <strong>Query Submitted Successfully!</strong>
-                        </div>'; 
+                        </div>';
             }
         }
-        
-    ?>
+
+        ?>
 
         <div class="block">
 
@@ -48,19 +48,29 @@ $cat_name = $_GET['catName'];
             <button class="queryBtn" onclick="askQuery()">Ask a Query</button>
         </div>
 
-        <div id="queryForm">
-            <form action="<?php $_SERVER['REQUEST_URI']  ?>" class="formFields" method="post">
-                <label for="queryTitle" class="queryText">Query Title</label>
+        <?php
 
-                <input required name="queryTitle" type="text" class="queryInput" id="queryInputTitle" placeholder="Enter your query">
+        if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
+            echo '<div id="queryForm">
+                        <form action="<?php $_SERVER[\'REQUEST_URI\']  ?>" class="formFields" method="post">
+                            <label for="queryTitle" class="queryText">Query Title</label>
 
-                <label for="queryDesc" class="queryText">Query Description</label>
+                            <input required name="queryTitle" type="text" class="queryInput" id="queryInputTitle" placeholder="Enter your query">
 
-                <textarea required placeholder="Enter query description" class="queryInput" id="queryInputDesc" name="queryDesc" cols="30" rows="5"></textarea>
+                            <label for="queryDesc" class="queryText">Query Description</label>
 
-                <button class="querySubmitBtn">Submit</button>
-            </form>
-        </div>
+                            <textarea required placeholder="Enter query description" class="queryInput" id="queryInputDesc" name="queryDesc" cols="30" rows="5"></textarea>
+
+                            <button class="querySubmitBtn">Submit</button>
+                        </form>
+                    </div>';
+        }
+
+        else{
+            echo '<div id="queryForm">Please log in to ask a question</div>';
+        }
+
+        ?>
 
         <div class="queryList">
             <h2 class="queryListHeading">Browse Queries</h2>
@@ -92,23 +102,23 @@ $cat_name = $_GET['catName'];
                 $result2 = mysqli_query($conn, $sql2);
                 $numReplies = mysqli_num_rows($result2);
 
-                    echo '<hr>
+                echo '<hr>
                         <div class="query">
                             <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
                             <div class="queryDetails">
-                                <h3 ><a class="queryTitle" href="./replies.php?catName='. $cat_name .'&queryId=' . $id . '"> ' . $title . ' </a>
+                                <h3 ><a class="queryTitle" href="./replies.php?catName=' . $cat_name . '&queryId=' . $id . '"> ' . $title . ' </a>
                                 </h3>
                                 <p class="queryDesc">' . substr($desc, 0, 100) . '...</p>
-                                <p class="userName">'. $userName .' &nbsp; ' . $query_time . '</p>
+                                <p class="userName">' . $userName . ' &nbsp; ' . $query_time . '</p>
                             </div>
                             <div class="queryStats">
                                 <h4 class="queryStatsTitle">Replies: &nbsp;</h4>
-                                <p class="queryStatsValue">'. $numReplies .'</p>
+                                <p class="queryStatsValue">' . $numReplies . '</p>
                             </div>
                         </div>';
             }
 
-            if($noContent){
+            if ($noContent) {
                 echo '<h3 class="emptyMessage">No ' . $cat_name . ' related queries asked till now.</h3>';
             }
             ?>

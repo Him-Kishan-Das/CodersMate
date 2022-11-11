@@ -61,17 +61,28 @@
             
         </div>
 
+       <?php
+        if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
+        echo '<div id="queryForm">
+                    <form action="<?php $_SERVER[\'REQUEST_URI\'] ?>" class="formFields" method="post">
+                        <label for="queryDesc" class="queryText">Post Reply</label>
 
+                        <textarea placeholder="Enter a Solution" class="queryInput" id="queryInputDesc" name="answer" cols="30" rows="5" style="white-space: pre-wrap;"></textarea>
 
-        <div id="queryForm">
-            <form action="<?php $_SERVER['REQUEST_URI'] ?>" class="formFields" method="post">
-                <label for="queryDesc" class="queryText">Post Reply</label>
+                        <button class="replySubmitBtn">Submit</button>
+                    </form>
+                </div>';
+        }
 
-                <textarea placeholder="Enter a Solution" class="queryInput" id="queryInputDesc" name="answer" cols="30" rows="5" style="white-space: pre-wrap;"></textarea>
+        else{
+            echo '<div id="queryForm">
+                    <div class="messageContainer">
+                        You need to Login to post a solution.
+                    </div>
+                 </div>';
+        }
 
-                <button class="replySubmitBtn">Submit</button>
-            </form>
-        </div>
+        ?>
 
         <div class="replyList">
             <h2 class="replyListHeading">Replies</h2>
