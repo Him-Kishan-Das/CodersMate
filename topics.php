@@ -108,17 +108,23 @@
                     $query_id = $row['query_id'];
                     $recentTitle = $row['query_title'];
                     $recentDesc = $row['query_desc'];
+                    $query_user_id = $row['query_user_id'];
                     $catName = $row['query_cat_name'];
+
+                    $sql2 = "SELECT * FROM `users` WHERE user_id = '$query_user_id'";
+                    $result2 = mysqli_query($conn, $sql2);
+                    $row1 = mysqli_fetch_assoc($result2);
+                    $userName = $row1['user_name'];
                     echo '<div class="recentCard">
                                 <img src="" alt="">
                                 <div class="recentDetails">
-                                    <a href="./replies.php?catName='. $catName .'&queryId='. $query_id .'"><div class="recentTitle">' . $recentTitle . '</div></a>
+                                    <a href="./replies.php?catName=' . $catName . '&queryId=' . $query_id . '"><div class="recentTitle">' . $recentTitle . '</div></a>
                                     <div class="recentDesc">
                                         ' . substr($recentDesc, 0, 50) . '...
                                     </div>
                                     <div class="userDetails">
                                         <div class="userImage"></div>
-                                        <p class="userName">him-kishan</p>
+                                        <p class="userName">'. $userName .'</p>
                                     </div>
                                 </div>
                             </div>

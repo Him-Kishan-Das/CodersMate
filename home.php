@@ -44,6 +44,10 @@
         $result2 = mysqli_query($conn, $sql2);
         $replies = mysqli_num_rows($result2);
 
+        $sql3 = "SELECT * FROM `users`";
+        $result3 = mysqli_query($conn, $sql3);
+        $users = mysqli_num_rows($result3);
+
     ?>
 
     <!-- Section - 2 -->
@@ -65,7 +69,7 @@
         </div>
         <div class="block" id="registered_Users">
             <img src="./icons/user-solid.svg" alt="user_icon" class="block_icon">
-            <p class="num">13</p>
+            <p class="num"><?php echo $users ?></p>
             <p class="name">Registered Users</p>
         </div>
     </div>

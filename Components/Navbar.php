@@ -56,13 +56,13 @@ if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
                     <img class="drop_down_img" src="./icons/user-solid.svg">
                     My Profile
                 </a>
-                <a class="drop_down_link" href="#">
+                <a class="drop_down_link" href="./Components/loggingout.php">
                     <img class="drop_down_img" src="./icons/arrow-right-from-bracket-solid.svg">
                     Log Out
                 </a>
             </div>
         </div>';
-    // echo $_SESSION['userEmail'];
+
 }
 
 

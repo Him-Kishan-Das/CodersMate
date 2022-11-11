@@ -12,8 +12,8 @@
 
 <body>
     <?php
+    include './Components/dbconnect.php';
     include './Components/Navbar.php';
-    include './Components/dbconnect.php'
     ?>
     <div class="container">
 
@@ -24,6 +24,11 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $queryTitle = $row['query_title'];
             $queryDesc = $row['query_desc'];
+            $query_user_id = $row['query_user_id'];
+            $sql1 = "SELECT * FROM `users` WHERE user_id = '$query_user_id'";
+            $result1 = mysqli_query($conn, $sql1);
+            $row1 = mysqli_fetch_assoc($result1);
+
         }
         ?>
 
@@ -50,8 +55,8 @@
             <pre class="para" style="white-space: pre-wrap"><?php echo $queryDesc  ?></pre>
             <button class="replyBtn" onclick="askQuery()">Post Reply</button>
             <div class="user">
-                <h2 class="posted">Posted by : </h2>
-                <p class="userName">him-kishan . </p>
+                <h2 class="posted">Posted by : &nbsp;</h2>
+                <p class="userName"><?php echo $row1['user_name'] ?></p>
             </div>
             
         </div>
@@ -80,6 +85,13 @@
                 $noReplies = false;
                 $replyDesc = $row['reply_desc'];
                 $replyTime = $row['reply_time'];
+                $replyUserId = $row['reply_user_id'];
+
+                // For accessing the data in the users table 
+                $sql3 = "SELECT * FROM `users` WHERE user_id = '$replyUserId'";
+                $result3 = mysqli_query($conn, $sql3);
+                $row = mysqli_fetch_assoc($result3);
+                $userName = $row['user_name'];
                 echo '<hr>
                     <div class="query">
                         <div class="replyDetails">
@@ -87,7 +99,7 @@
                             </pre>
                             <div class="user">
                                 <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
-                                <p class="userName">him-kishan  &nbsp; </p>
+                                <p class="userName">'. $userName .' &nbsp; </p>
                                 <p class="userName">' . $replyTime . '</p>
                             </div>
                         </div>

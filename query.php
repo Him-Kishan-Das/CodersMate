@@ -16,8 +16,8 @@ $cat_name = $_GET['catName'];
 <body>
 
     <?php
+    include './Components/dbconnect.php';
     include './Components/Navbar.php';
-    include './Components/dbconnect.php'
     ?>
 
     <div class="container">
@@ -67,6 +67,8 @@ $cat_name = $_GET['catName'];
 
             <!-- For displaying the query list from the database -->
             <?php
+
+            // For accessing data for query table 
             $cat_name = $_GET['catName'];
             $sql = "SELECT * FROM `queries` WHERE query_cat_name = '$cat_name'";
             $result = mysqli_query($conn, $sql);
@@ -78,6 +80,18 @@ $cat_name = $_GET['catName'];
                 $desc = $row['query_desc'];
                 $query_user_id = $row['query_user_id'];
                 $query_time = $row['query_time'];
+
+                // For accessing data from users table 
+                $sql1 = "SELECT * FROM `users` WHERE user_id = '$query_user_id'";
+                $result1 = mysqli_query($conn, $sql1);
+                $row1 = mysqli_fetch_assoc($result1);
+                $userName = $row1['user_name'];
+
+                // For accessing data from replies table 
+                $sql2 = "SELECT * FROM `replies` WHERE query_id = '$query_user_id'";
+                $result2 = mysqli_query($conn, $sql2);
+                $numReplies = mysqli_num_rows($result2);
+
                     echo '<hr>
                         <div class="query">
                             <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
@@ -85,11 +99,11 @@ $cat_name = $_GET['catName'];
                                 <h3 ><a class="queryTitle" href="./replies.php?catName='. $cat_name .'&queryId=' . $id . '"> ' . $title . ' </a>
                                 </h3>
                                 <p class="queryDesc">' . substr($desc, 0, 100) . '...</p>
-                                <p class="userName">him-kishan . ' . $query_time . '</p>
+                                <p class="userName">'. $userName .' &nbsp; ' . $query_time . '</p>
                             </div>
                             <div class="queryStats">
-                                <h4 class="queryStatsTitle">Answers: </h4>
-                                <p class="queryStatsValue">10</p>
+                                <h4 class="queryStatsTitle">Replies: &nbsp;</h4>
+                                <p class="queryStatsValue">'. $numReplies .'</p>
                             </div>
                         </div>';
             }

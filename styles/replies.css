@@ -57,7 +57,8 @@
 }
 
 .posted{
-    font-size: 19px;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 
@@ -166,9 +167,9 @@
 
 
 .userName{
-    font-size: 14px;
-    color: rgb(128, 128, 128);
-    margin-top: 5px;
+    font-size: 16px;
+    color: rgb(55, 55, 55);
+    margin-top: 2px;
 }
 
 .queryStats{
