@@ -17,32 +17,42 @@ echo '<nav class="navbar">
         <li class="nav-link"><a class="nav-link-elem" href="./topics.php">Topics</a></li>
         <!-- Drop down element of the navbar  -->
         <div class="dropdown nav-link">
-            <button class="dropbtn" onclick="dropDown()">Top Categories
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content" id="myDropdown">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+          <button class="dropbtn" onclick="dropDown()">Top Categories
+            <i class="fa fa-caret-down"></i>
+             </button>
+             <div class="dropdown-content" id="myDropdown">';
+
+
+        $sql = "SELECT category_name FROM `categories`";
+        $result = mysqli_query($conn, $sql);
+        while($row = mysqli_fetch_assoc($result)){
+                echo '          <a href="./query.php?catName=' . $row['category_name'] . '">'. $row['category_name'] .'</a>';
+                            
+        }
+
+    echo '</div>
             </div>
+            </ul>
         </div>
-    </ul>
-</div>
-<!-- Rigth Elements of the navbar -->
-<div class="navbar-right-elements">
-    <!-- Search Bar -->
-    <div class="search">
-        <input type="text" name="search" id="search-bar" placeholder="Search questions...">
-        <button class="search_btn">
-            <img class="search-icon" src="./icons/magnifying-glass-solid.svg" alt="search icon">
-        </button>
-    </div>';
+        <!-- Rigth Elements of the navbar -->
+        <div class="navbar-right-elements">
+            <!-- Search Bar -->
+            <form action="./search.php" method="GET">
+                <div class="search">  
+                    <input type="text" name="search" id="search-bar" placeholder="Search questions...">
+                    <button class="search_btn">
+                        <img class="search-icon" src="./icons/magnifying-glass-solid.svg" alt="search icon">
+                    </button>
+                    
+                </div> 
+            </form>';
+           
 
 if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
     $email = $_SESSION['userEmail'];
-    $sql = "SELECT * FROM `users` WHERE user_email = '$email'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+    $sql1 = "SELECT * FROM `users` WHERE user_email = '$email'";
+    $result1 = mysqli_query($conn, $sql1);
+    $row = mysqli_fetch_assoc($result1);
     $userName = $row['user_name'];
     echo '<div class="dropdown nav-link">
             <button class="dropbtn" onclick="dropDown()"><img class="nav_profile" src="./icons/user-solid.svg">

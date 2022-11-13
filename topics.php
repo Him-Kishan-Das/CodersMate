@@ -30,6 +30,11 @@
                     $title = $row['category_name'];
                     $desc = $row['category_description'];
                     $type = $row['category_type'];
+
+                    $sql1 = "SELECT * FROM `queries` WHERE query_cat_name = '$title'";
+                    $result1 = mysqli_query($conn, $sql1);
+                    $numQuery = mysqli_num_rows($result1);
+
                     if ($type == 'programming') {
                         echo '<div class="card">
                         <img src="./img/' . $title . '.jpg" alt="' . $title . ' image" class="card-img">
@@ -40,13 +45,10 @@
                             <a href="./query.php?catName=' . $title . '"><button class="card_btn">View Queries</button></a>
                             <div class="stats">
                                 <div class="stats-details">
-                                    <p class="number">10</p>
-                                    <p class="stats-title">Questions</p>
+                                    <p class="number">'. $numQuery .'</p>
+                                    <p class="stats-title">Queries</p>
                                 </div>
-                                <div class="stats-details">
-                                    <p class="number">10</p>
-                                    <p class="stats-title">Replies</p>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -68,6 +70,11 @@
                     $title = $row['category_name'];
                     $desc = $row['category_description'];
                     $type = $row['category_type'];
+
+                    $sql1 = "SELECT * FROM `queries` WHERE query_cat_name = '$title'";
+                    $result1 = mysqli_query($conn, $sql1);
+                    $numQuery = mysqli_num_rows($result1);
+
                     if ($type == 'framework') {
                         echo '<div class="card">
                     <img src="./img/' . $title . '.jpg" alt="' . $title . ' image" class="card-img">
@@ -78,13 +85,10 @@
                         <a href="./query.php?catName=' . $title . '"><button class="card_btn">View Queries</button></a>
                             <div class="stats">
                                 <div class="stats-details">
-                                    <p class="number">10</p>
-                                    <p class="stats-title">Questions</p>
+                                    <p class="number">'. $numQuery .'</p>
+                                    <p class="stats-title">Queries</p>
                                 </div>
-                                <div class="stats-details">
-                                    <p class="number">10</p>
-                                    <p class="stats-title">Replies</p>
-                                </div>
+
                             </div>
                         </div>
                     </div>

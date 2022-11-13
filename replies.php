@@ -38,7 +38,10 @@
         $alert = false;
         if ($method == 'POST') {
             $formDesc = $_POST['answer'];
-            $sql1 = "INSERT INTO `replies` (`reply_desc`, `query_id`, `reply_user_id`, `reply_time`) VALUES ('$formDesc', '$query_id', '0', current_timestamp())";
+            $userId = $_SESSION['userId'];
+            $formDesc= str_replace("<", "&lt;", "$formDesc");
+            $formDesc= str_replace(">", "&gt;", "$formDesc");
+            $sql1 = "INSERT INTO `replies` (`reply_desc`, `query_id`, `reply_user_id`, `reply_time`) VALUES ('$formDesc', '$query_id', '$userId', current_timestamp())";
             mysqli_query($conn, $sql1);
             $alert = true;
         }
@@ -55,8 +58,8 @@
             <pre class="para" style="white-space: pre-wrap"><?php echo $queryDesc  ?></pre>
             <button class="replyBtn" onclick="askQuery()">Post Reply</button>
             <div class="user">
-                <h2 class="posted">Posted by : &nbsp;</h2>
-                <p class="userName"><?php echo $row1['user_name'] ?></p>
+                <h2 class="posted">Asked by : &nbsp;</h2>
+                <em><p class="userName" style="font-weight: 600;"><?php echo $row1['user_name'] ?></p></em>
             </div>
             
         </div>
@@ -64,7 +67,7 @@
        <?php
         if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
         echo '<div id="queryForm">
-                    <form action="<?php $_SERVER[\'REQUEST_URI\'] ?>" class="formFields" method="post">
+                    <form action="'. $_SERVER['REQUEST_URI'] .'" class="formFields" method="post">
                         <label for="queryDesc" class="queryText">Post Reply</label>
 
                         <textarea placeholder="Enter a Solution" class="queryInput" id="queryInputDesc" name="answer" cols="30" rows="5" style="white-space: pre-wrap;"></textarea>
@@ -110,8 +113,8 @@
                             </pre>
                             <div class="user">
                                 <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
-                                <p class="userName">'. $userName .' &nbsp; </p>
-                                <p class="userName">' . $replyTime . '</p>
+                                <em><p class="userName">'. $userName .' &nbsp; </p>
+                                <p class="userName">' . $replyTime . '</p></em>
                             </div>
                         </div>
                         

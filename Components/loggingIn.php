@@ -12,6 +12,7 @@
                 session_start();
                 $_SESSION['logIn'] = true;
                 $_SESSION['userEmail'] = $loginEmail;
+                $_SESSION['userId'] = $row['user_id'];
                 echo "logging successful";
                 header("Location: /CodersMate/home.php");
             }

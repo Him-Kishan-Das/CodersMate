@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    padding-top: 90px;
+    margin: 0px 8rem;
+}
+
+
+
+.searchHeading{
+    font-size: 35px;
+    margin: 20px 0px;
+    color: rgb(178, 23, 199);
+}
+
+.numberofSearch{
+    margin: 5px 17px;
+}
+
+
+.searchItems{
+    display: flex;
+    margin: 40px 0px;
+}
+
+
+.searchDetails{
+    margin: 0px 15px;
+}
+
+.queryTitle{
+    color: rgb(10, 124, 231);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+.queryTitle:hover{
+    cursor: pointer;
+    text-decoration: underline 1.3px;
+}
+
+.queryDesc{
+    color: rgb(68, 68, 68);
+    padding-top: 5px;
+}
+
+.userName{
+    font-size: 14px;
+    color: rgb(128, 128, 128);
+    margin-top: 5px;
+}
+
+.queryStats{
+    display: flex;
+    margin-left: auto;
+    margin-right: 10rem;
+}
+
+.searchNotFound{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px 0px;
+}
+
+.notFoundIcon{
+    width: 7rem;
+
+}
+
+.notFoundPara{
+    font-size: 20px;
+    padding: 18px 0px;
+    width: 40rem;
+    text-align: center;
+}

@@ -27,8 +27,16 @@ $cat_name = $_GET['catName'];
         $alert = false;
         if ($method == 'POST') {
             $queryTitle = $_POST['queryTitle'];
+            $queryTitle= str_replace("<", "&lt;", "$queryTitle");
+            $queryTitle= str_replace(">", "&gt;", "$queryTitle");
+
+
             $queryDesc = $_POST['queryDesc'];
-            $sql = "INSERT INTO `queries` (`query_title`, `query_desc`, `query_cat_name`, `query_user_id`, `query_time`) VALUES ('$queryTitle', '$queryDesc', '$cat_name', '0', current_timestamp())";
+            $queryDesc= str_replace("<", "&lt;", "$queryDesc");
+            $queryDesc= str_replace(">", "&gt;", "$queryDesc");
+
+            $userId = $_SESSION['userId'];
+            $sql = "INSERT INTO `queries` (`query_title`, `query_desc`, `query_cat_name`, `query_user_id`, `query_time`) VALUES ('$queryTitle', '$queryDesc', '$cat_name', '$userId', current_timestamp())";
             $result = mysqli_query($conn, $sql);
             $alert = true;
             if ($alert) {
@@ -52,7 +60,7 @@ $cat_name = $_GET['catName'];
 
         if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
             echo '<div id="queryForm">
-                        <form action="<?php $_SERVER[\'REQUEST_URI\']  ?>" class="formFields" method="post">
+                        <form action="'. $_SERVER["REQUEST_URI"]  .'" class="formFields" method="post">
                             <label for="queryTitle" class="queryText">Query Title</label>
 
                             <input required name="queryTitle" type="text" class="queryInput" id="queryInputTitle" placeholder="Enter your query">

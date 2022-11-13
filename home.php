@@ -22,10 +22,14 @@
         <div class="part1">
             <h1 class="welcome_heading">Welcome to Coder's Mate</h1>
             <p class="para1">This is a Coding Forum to seek help or to offer help to the coders for various queries relating to programming languages and frameworks.</p>
-            <div class="section_Search">
-                <input type="text" class="section_SearchBar">
-                <button class="section_searchBtn">Search</button>
-            </div>
+
+            <form action="./search.php" method="GET">
+                <div class="section_Search">
+                    <input type="text" name="search" class="section_SearchBar">
+                    <button class="section_searchBtn">Search</button>
+                </div>
+            </form>
+            
         </div>
         <img class="section_img" src="./img/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg" alt="codingImage">
     </div>
