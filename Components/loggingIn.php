@@ -16,6 +16,10 @@
                 echo "logging successful";
                 header("Location: /CodersMate/home.php");
             }
+            else{
+                $_SESSION['logIn'] = false;
+                header("Location: /CodersMate/home.php");
+            }
         }
     }
 ?>

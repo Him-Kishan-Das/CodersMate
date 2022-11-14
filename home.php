@@ -13,9 +13,10 @@
 
     <?php
     include './Components/dbconnect.php';
-    include './Components/Navbar.php'
+    include './Components/Navbar.php';
     ?>
 
+    
 
     <!-- Section - 1 -->
     <div class="section">

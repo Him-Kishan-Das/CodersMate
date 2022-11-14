@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* background: rgb(243, 230, 213); */
+}
+
+.main{
+    margin: 0px 80px;
+    padding-top: 6rem;
+}
+
+.profileUsernameSection{
+    display: flex;
+    margin: auto 0px;
+    padding: 28px;
+}
+
+.profilePic{
+    width: 7rem;
+}
+
+.userMailName{
+    margin: auto 25px;
+}
+
+.username{
+    font-size: 32px;
+    color: rgb(10, 173, 29);  
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 900;
+}
+
+.userMail{
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 5px 0px;
+}
+
+/* section2 Styling starts here  */
+
+.profileForm{
+    font-size: 18px;
+    padding: 0rem 6rem;
+}
+
+.row{
+   display: flex;
+
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 38px 10px 0px;
+}
+
+.profileText{
+    font-size: 16px;
+    padding: 7px 0px;
+    color: rgb(106, 106, 106);
+}
+
+.profileInput{
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 5px;
+    width: 28rem;
+    outline: none;
+    border: none;
+    border-bottom: solid 2px rgb(29, 96, 3);
+}
+
+#gender{
+    background-color: white;
+}
+
+.profileSubmitBtn{
+    background-color: rgb(11, 190, 17);
+    border: none;
+    font-size: 20px;
+    color: white;
+    margin-top: 15px;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.profileSubmitBtn:hover{
+    cursor: pointer;
+    background-color: rgb(14, 151, 19);
+}
+/* sectin2 styling ends here  */
