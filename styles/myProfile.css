@@ -94,3 +94,130 @@ body{
     background-color: rgb(14, 151, 19);
 }
 /* sectin2 styling ends here  */
+
+
+/* section3 styling starts here  */
+
+.section3{
+    margin-top: 6rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.showBtn{
+    font-size: 27px;
+    border: none;
+    background-color: white;
+    color: rgb(19, 66, 20);
+    font-weight: 600;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+}
+
+.showBtn:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(14, 151, 19);
+}
+
+.showBtn:active{
+    color: rgb(14, 151, 19);
+}
+
+#userQueries{
+    display: none;
+}
+
+.queryForm{
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
+}
+
+#queryTitle{
+    font-size: 18px;
+    width: 95%;
+    padding: 7px;
+    outline: none;
+    border: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    background: rgb(237, 234, 227);
+    font-weight: 600;
+    color: rgb(16, 16, 116);
+}
+
+#queryDesc{
+    font-size: 16px;
+    width: 95%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background: rgb(237, 234, 227);
+    margin: 10px 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+#editBtn{
+    margin-left: 65rem;
+    background-color: rgb(11, 190, 17);
+    border: none;
+    font-size: 20px;
+    color: white;
+    margin-top: 5px;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+#editBtn:hover{
+    cursor: pointer;
+    background-color: rgb(14, 151, 19);
+}
+
+#userReplies{
+    display: none;
+}
+
+.replyForm{
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.queryTitle{
+    color: rgb(10, 124, 231);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+.queryTitle:hover{
+    cursor: pointer;
+    text-decoration: underline 1.3px;
+}
+
+#replyDesc{
+    font-size: 16px;
+    width: 95%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background: rgb(237, 234, 227);
+    margin: 10px 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* section3 styling ends here  */
