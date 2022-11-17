@@ -70,7 +70,7 @@ if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
                 </a>';
 
                 if($role == "admin"){
-                    echo '<a class="drop_down_link" href="./Components/admin.php?userid='. $user_id .'&username='. $userName .'">
+                    echo '<a class="drop_down_link" href="./admin.php?userid='. $user_id .'&username='. $userName .'">
                         <img class="drop_down_img" src="icons\screwdriver-wrench-solid.svg">
                         Admin
                     </a>';
