@@ -112,6 +112,8 @@ $userid = $_GET['userid'];
             </div>
             <hr>
 
+
+
             <!-- Query Section  -->
 
             <div id="userQueries">
@@ -121,7 +123,9 @@ $userid = $_GET['userid'];
                 while ($row = mysqli_fetch_assoc($result1)) {
                     $queryTitle = $row['query_title'];
                     $queryDesc = $row['query_desc'];
-                    echo '<form action="" method="post" class="queryForm">
+                    $queryId = $row['query_id'];
+                    echo '<form action="Components\queryUpdate.php?userid='. $userid .'&username='. $userName .'" method="post" class="queryForm">
+                        <input type="hidden" class="queryid" name="queryId" value="'. $queryId .'">
                                 <input type="text" id="queryTitle" name="queryTitle" value="' . $queryTitle . '">
                                 <textarea name="queryDesc" id="queryDesc" cols="30" rows="3">' . $queryDesc . '</textarea>
                                 <button id="editBtn">Update</button>
@@ -138,13 +142,15 @@ $userid = $_GET['userid'];
                 while ($row = mysqli_fetch_assoc($result2)) {
                     $replyDesc = $row['reply_desc'];
                     $queryId = $row['query_id'];
+                    $replyId = $row['reply_id'];
 
                     $sql3 = "SELECT * FROM `queries` WHERE query_id = '$queryId'";
                     $result3 = mysqli_query($conn, $sql3);
                     $row1 = mysqli_fetch_assoc($result3);
-                    echo '<form action="" method="post" class="replyForm">
+                    echo '<form action="Components\replyUpdate.php?userid='. $userid .'&username='. $userName .'" method="post" class="replyForm">
                             <h3 ><a class="queryTitle" href="">'. $row1['query_title'] .'</a>
                             </h3>
+                            <input type="hidden" class="replyid" name="replyId" value="'. $replyId .'">
                             <textarea name="replyDesc" id="replyDesc" cols="30" rows="3">' . $replyDesc . '</textarea>
                             <button id="editBtn">Update</button>
                         </form>';

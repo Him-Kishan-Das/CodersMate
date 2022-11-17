@@ -55,6 +55,7 @@ if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
     $row = mysqli_fetch_assoc($result1);
     $userName = $row['user_name'];
     $user_id = $row['user_id'];
+    $role = $row['user_role'];
     echo '<div class="dropdown nav-link">
             <button class="dropbtn" onclick="dropDown()"><img class="nav_profile" src="./icons/user-solid.svg">
                 <i class="fa fa-caret-down"></i>
@@ -66,8 +67,16 @@ if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
                 <a class="drop_down_link" href="./myProfile.php?userid='. $user_id .'&username='. $userName .'">
                     <img class="drop_down_img" src="./icons/user-solid.svg">
                     My Profile
-                </a>
-                <a class="drop_down_link" href="./Components/loggingout.php">
+                </a>';
+
+                if($role == "admin"){
+                    echo '<a class="drop_down_link" href="./Components/admin.php?userid='. $user_id .'&username='. $userName .'">
+                        <img class="drop_down_img" src="icons\screwdriver-wrench-solid.svg">
+                        Admin
+                    </a>';
+                }
+
+                echo '<a class="drop_down_link" href="./Components/loggingout.php">
                     <img class="drop_down_img" src="./icons/arrow-right-from-bracket-solid.svg">
                     Log Out
                 </a>
