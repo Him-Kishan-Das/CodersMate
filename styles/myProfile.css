@@ -130,7 +130,7 @@ body{
 }
 
 #userQueries{
-    display: none;
+    display: block;
 }
 
 .queryForm{
