@@ -20,7 +20,7 @@ body{
     margin: 20px auto;
     width: 90%;
     padding: 8px;
-    background: linear-gradient(2deg, #19a9dd, #00df98);
+    background: linear-gradient(2deg, #19a9dd, #ab00df);
     background-size: 400% 400%;
 
     -webkit-animation: AnimationName 18s ease infinite;
@@ -174,6 +174,42 @@ body{
     background: rgb(209, 0, 0);
 }
 
+
+/* category sec  */
+
+.categoryForm{
+    background: rgb(183, 127, 247);
+    border-radius: 10px;
+    padding: 15px 30px
+}
+
+.category{
+    display: flex;
+}
+
+
+.cat{
+    display: flex;
+    flex-direction: column;
+    margin: 8px 15px;
+}
+
+.categoryText{
+    padding: 10px 0px;
+    font-weight: 600;
+    color: black;
+}
+
+#categoryInputName{
+    width: 58.7rem;
+    font-size: 18px;
+    padding: 5px;
+}
+
+#categoryType{
+    padding: 5px;
+    font-size: 17px;
+}
 
 /* reolySec  */
 

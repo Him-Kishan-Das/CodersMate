@@ -37,12 +37,47 @@
             <button class="adminBtn" id="ReplyBtn" onclick="showReplies()">Replies</button>
         </div>
 
+        <?php
+            if(isset($_POST['add'])){
+                $catName = $_POST['categoryName'];
+                $catType = $_POST['categoryType'];
+                $catDesc = $_POST['categoryDesc'];
 
+                $select = "SELECT * FROM `categories` ORDER BY category_id DESC LIMIT 1";
+                $catresult = mysqli_query($conn, $select);
+                $row3 = mysqli_fetch_assoc($catresult);
+                $catid = $row3['category_id'];
+                $catid++;
 
+     
+                $insert = "INSERT INTO `categories` (`category_id`, `category_name`, `category_description`, `category_type`, `created`) VALUES ('$catid', '$catName','$catDesc',  '$catType',current_timestamp())";
+                $final = mysqli_query($conn, $insert);
+            }
+            
+
+        ?>
         <div id="categorySec" class="section2">
-            <form action="" method="post">
-                <label for="categoryName" class="categoryText">Category Name</label>
-                <input required name="categoryName" type="text" class="categoryInput" id="categoryInputName" placeholder="Enter the title" >
+            <form class="categoryForm" method="post">
+                <div class="category">
+                    <div class="cat">
+                        <label for="categoryName" class="categoryText">Category Name</label>
+                        <input required name="categoryName" type="text" class="categoryInput" id="categoryInputName" placeholder="Enter the title">
+                    </div>
+                    <div class="cat">
+                        <label for="categoryType" class="categoryText">Category Type</label>
+                        <select id="categoryType" name="categoryType" class="profileInput">
+                            <option value="programming">Programming</option>
+                            <option value="framework">Framework</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="cat">
+                    <label for="categoryDesc" class="categoryText">Category Description</label>
+
+                    <textarea name="categoryDesc" id="categoryInputDesc" cols="30" rows="10"></textarea>
+                </div>
+
+                <button name="add">Add</button>
             </form>
         </div>
 
