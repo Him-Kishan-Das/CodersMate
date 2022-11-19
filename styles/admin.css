@@ -176,12 +176,15 @@ body{
 
 
 /* reolySec  */
+
 .replyDetails{
 
     background: rgb(253, 194, 199);
+    color: rgb(55, 3, 3);
     border-radius: 5px;
     padding: 30px;
     width: 95%;
+    margin-bottom: 10px;
 }
 
 .replyDesc{
