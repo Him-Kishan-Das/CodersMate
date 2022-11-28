@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <style>
     <?php
@@ -23,14 +23,13 @@ echo '<nav class="navbar">
              <div class="dropdown-content" id="myDropdown">';
 
 
-        $sql = "SELECT category_name FROM `categories`";
-        $result = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_assoc($result)){
-                echo '          <a href="./query.php?catName=' . $row['category_name'] . '">'. $row['category_name'] .'</a>';
-                            
-        }
+$sql = "SELECT category_name FROM `categories`";
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_assoc($result)) {
+    echo '          <a href="./query.php?catName=' . $row['category_name'] . '">' . $row['category_name'] . '</a>';
+}
 
-    echo '</div>
+echo '</div>
             </div>
             </ul>
         </div>
@@ -46,7 +45,7 @@ echo '<nav class="navbar">
                     
                 </div> 
             </form>';
-           
+
 
 if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
     $email = $_SESSION['userEmail'];
@@ -56,38 +55,52 @@ if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
     $userName = $row['user_name'];
     $user_id = $row['user_id'];
     $role = $row['user_role'];
-    echo '<div class="dropdown nav-link">
-            <button class="dropbtn" onclick="dropDown()"><img class="nav_profile" src="./icons/user-solid.svg">
-                <i class="fa fa-caret-down"></i>
-            </button>
+    echo '
+          
+
+            <div class="dropdown nav-link">
+                    <button class="dropbtn" onclick="dropDown()"><img class="nav_profile" src="./icons/user-solid.svg">
+                         <i class="fa fa-caret-down"></i>
+                    </button>
             <div class="dropdown-content profile-content" id="myDropdown">
             <div class="hl"></div>
-                <p class="profile_name">'. $userName .'</p>
+                <p class="profile_name">' . $userName . '</p>
                 <hr>
-                <a class="drop_down_link" href="./myProfile.php?userid='. $user_id .'&username='. $userName .'">
+                <a class="drop_down_link" href="./myProfile.php?userid=' . $user_id . '&username=' . $userName . '">
                     <img class="drop_down_img" src="./icons/user-solid.svg">
                     My Profile
-                </a>';
+                </a>
 
-                if($role == "admin"){
-                    echo '<a class="drop_down_link" href="./admin.php?userid='. $user_id .'&username='. $userName .'">
+                <a style="cursor: pointer" class="drop_down_link" id="myBtn"><img class="drop_down_img" src="./icons/note-sticky-solid.svg">
+                   Note</a>
+                    <div id="myModal" class="modal" class="drop_down_link">      
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            
+                            <form action="" method="post" class="noteForm">
+                                <label for="note" class="modalText">Note</label>
+                                <textarea name="note" cols="30" rows="10" class="noteInput"></textarea>
+                            </form>
+                            
+                        </div>
+                    </div>
+                
+                ';
+
+    if ($role == "admin") {
+        echo '<a class="drop_down_link" href="./admin.php?userid=' . $user_id . '&username=' . $userName . '">
                         <img class="drop_down_img" src="icons\screwdriver-wrench-solid.svg">
                         Admin
                     </a>';
-                }
+    }
 
-                echo '<a class="drop_down_link" href="./Components/loggingout.php">
+    echo '<a class="drop_down_link" href="./Components/loggingout.php">
                     <img class="drop_down_img" src="./icons/arrow-right-from-bracket-solid.svg">
                     Log Out
                 </a>
             </div>
         </div>';
-
-}
-
-
-
-else {
+} else {
     echo '<div>
             <button class="nav-btn" id="myBtn">Login</button>
             <div id="myModal" class="modal">
@@ -114,6 +127,8 @@ echo '</div>
     </nav>';
 
 ?>
+
+
 
 <?php
 echo '<script type="text/javascript">
