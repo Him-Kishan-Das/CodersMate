@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\map;
+
 $userName = $_GET['username'];
 $userid = $_GET['userid'];
 ?>
@@ -34,7 +37,7 @@ $userid = $_GET['userid'];
 
 
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['profileUpdate'])) {
             $realName = $_POST['realName'];
             $gender = $_POST['gender'];
             $state = $_POST['state'];
@@ -62,7 +65,7 @@ $userid = $_GET['userid'];
 
 
             ?>
-            <form action="<?php $_SERVER["REQUEST_URI"] ?>" class="profileForm" method="POST">
+            <form action="" class="profileForm" method="POST">
                 <div class="row">
                     <div class="input">
                         <label for="realName" class="profileText">Name</label>
@@ -98,7 +101,7 @@ $userid = $_GET['userid'];
                     </div>
                 </div>
 
-                <button class="profileSubmitBtn" id="updateBtn" onsubmit="confirm('Are you sure you want to update?')">Update</button>
+                <button class="profileSubmitBtn" id="updateBtn" name="profileUpdate" onsubmit="confirm('Are you sure you want to update?')">Update</button>
 
             </form>
         </div>
@@ -109,6 +112,7 @@ $userid = $_GET['userid'];
             <div class="buttons">
                 <button id="queryBtn" class="showBtn" onclick="showQuery()">Query</button>
                 <button id="repliesBtn" class="showBtn" onclick="showReply()">Replies</button>
+                <button id="notesBtn" class="showBtn" onclick="showNote()">Note</button>
             </div>
             <hr>
 
@@ -124,8 +128,8 @@ $userid = $_GET['userid'];
                     $queryTitle = $row['query_title'];
                     $queryDesc = $row['query_desc'];
                     $queryId = $row['query_id'];
-                    echo '<form action="Components\queryUpdate.php?userid='. $userid .'&username='. $userName .'" method="post" class="queryForm">
-                        <input type="hidden" class="queryid" name="queryId" value="'. $queryId .'">
+                    echo '<form action="Components\queryUpdate.php?userid=' . $userid . '&username=' . $userName . '" method="post" class="queryForm">
+                        <input type="hidden" class="queryid" name="queryId" value="' . $queryId . '">
                                 <input type="text" id="queryTitle" name="queryTitle" value="' . $queryTitle . '">
                                 <textarea name="queryDesc" id="queryDesc" cols="30" rows="3">' . $queryDesc . '</textarea>
                                 <button id="editBtn">Update</button>
@@ -147,16 +151,60 @@ $userid = $_GET['userid'];
                     $sql3 = "SELECT * FROM `queries` WHERE query_id = '$queryId'";
                     $result3 = mysqli_query($conn, $sql3);
                     $row1 = mysqli_fetch_assoc($result3);
-                    echo '<form action="Components\replyUpdate.php?userid='. $userid .'&username='. $userName .'" method="post" class="replyForm">
-                            <h3 ><a class="queryTitle" href="">'. $row1['query_title'] .'</a>
+                    echo '<form action="Components\replyUpdate.php?userid=' . $userid . '&username=' . $userName . '" method="post" class="replyForm">
+                            <h3 ><a class="queryTitle" href="">' . $row1['query_title'] . '</a>
                             </h3>
-                            <input type="hidden" class="replyid" name="replyId" value="'. $replyId .'">
+                            <input type="hidden" class="replyid" name="replyId" value="' . $replyId . '">
                             <textarea name="replyDesc" id="replyDesc" cols="30" rows="3">' . $replyDesc . '</textarea>
                             <button id="editBtn">Update</button>
                         </form>';
                 }
                 ?>
             </div>
+
+            <!-- Note Section  -->
+            <?php
+            // Update Feature
+            if(isset($_POST['noteUpdate'])){
+                $noteDesc = $_POST['noteDesc'];
+                $noteId = $_POST['noteId'];
+                $noteUpdate = "UPDATE `notes` SET `note_desc` = '$noteDesc' WHERE `note_id` = '$noteId'";
+                $noteUpdateQuery = mysqli_query($conn, $noteUpdate);
+            }
+
+            // Delete Feature 
+            if(isset($_POST['noteDelete'])){
+                $noteDeleteId = $_POST['noteId'];
+                $noteDelete = "DELETE FROM `notes` WHERE `note_id` = '$noteDeleteId'";
+                $noteDeleteQuery = mysqli_query($conn, $noteDelete);
+            }
+
+            ?>
+
+
+            <div id="userNotes">
+                <?php
+                $sql4 = "SELECT * FROM `notes` WHERE note_user_id='$userid'";
+                $result4 = mysqli_query($conn, $sql4);
+
+                while ($row2 = mysqli_fetch_assoc($result4)) {
+
+                    echo '<form action="" method="post" class="noteSection">
+                            <div class="noteBox">
+                            <input hidden name="noteId" value="'. $row2['note_id'] .'">
+                                <textarea class="noteArea" name="noteDesc" id="" cols="30" rows="8">' . $row2['note_desc'] . '</textarea>
+
+                                <p class="time">' . $row2['note_time'] . '</p>
+                            </div>
+                            <div class="noteBox1">
+                                <button id="noteUpdate" name="noteUpdate" class="noteBtn">Update</button>
+                                <button id="noteDelete" name="noteDelete" class="noteBtn" onClick=\"javascript: return confirm(\'Please confirm deletion\')";>Delete</button>
+                            </div>
+                        </form>';
+                }
+                ?>
+            </div>
+
 
         </div>
     </div>

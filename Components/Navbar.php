@@ -56,9 +56,7 @@ if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
     $user_id = $row['user_id'];
     $role = $row['user_role'];
     echo '
-          
-
-            <div class="dropdown nav-link">
+          <div class="dropdown nav-link">
                     <button class="dropbtn" onclick="dropDown()"><img class="nav_profile" src="./icons/user-solid.svg">
                          <i class="fa fa-caret-down"></i>
                     </button>
@@ -69,22 +67,30 @@ if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
                 <a class="drop_down_link" href="./myProfile.php?userid=' . $user_id . '&username=' . $userName . '">
                     <img class="drop_down_img" src="./icons/user-solid.svg">
                     My Profile
-                </a>
+                </a>';
 
-                <a style="cursor: pointer" class="drop_down_link" id="myBtn"><img class="drop_down_img" src="./icons/note-sticky-solid.svg">
+        if (isset($_POST['saveNote'])) {
+            $noteDesc = $_POST['note'];
+
+            $sql = "INSERT INTO `notes` (`note_desc`, `note_user_id`, `note_time`) VALUES ('$noteDesc', '$user_id', current_timestamp())";
+            $result = mysqli_query($conn, $sql);
+        }
+
+    echo '<a style="cursor: pointer" class="drop_down_link" id="myBtn"><img class="drop_down_img" src="./icons/note-sticky-solid.svg">
                    Note</a>
                     <div id="myModal" class="modal" class="drop_down_link">      
-                        <div class="modal-content">
+                        <div class="modal-content noteModal">
                             <span class="close">&times;</span>
                             
                             <form action="" method="post" class="noteForm">
-                                <label for="note" class="modalText">Note</label>
-                                <textarea name="note" cols="30" rows="10" class="noteInput"></textarea>
+                                <label for="note" class="modalText noteText">Note</label>
+                                <textarea name="note" cols="30" rows="19" class="noteInput"></textarea>
+
+                                <button class="saveBtn" name="saveNote">Save</button>
                             </form>
                             
                         </div>
-                    </div>
-                
+                    </div>                
                 ';
 
     if ($role == "admin") {

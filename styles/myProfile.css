@@ -139,7 +139,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid black; */
 }
 
 
@@ -218,6 +217,67 @@ body{
     background: rgb(237, 234, 227);
     margin: 10px 0px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+#userNotes{
+    display: none;
+}
+
+.noteSection{
+    width: 98%;
+    margin: 0 auto;
+}
+
+.noteBox{
+    display: flex;
+    background: rgb(217, 217, 253);
+    padding: 10px 20px;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.noteArea{
+    width: 100%;
+    background: rgb(217, 217, 253);
+    border: none;
+}
+
+.time{
+    margin-left: 60rem;
+    padding: 14px 0px;
+}
+
+.noteBtn{
+    padding: 8px 10px;
+    font-size: 18px;
+    width: 5.5rem;
+    margin: 0px 5px 0px 8px;
+    color: white;
+    border-radius: 7px;
+}
+
+.noteBox1{
+    margin-left: 59rem;
+    margin-top: 12px;
+}
+
+#noteUpdate{
+    background: rgb(0, 164, 0);
+    cursor: pointer;
+}
+
+#noteUpdate:hover{
+    background: rgb(0, 104, 0);
+}
+
+#noteDelete{
+    background: red;
+    cursor: pointer;
+}
+
+#noteDelete:hover{
+    background: rgb(202, 1, 1);
 }
 
 

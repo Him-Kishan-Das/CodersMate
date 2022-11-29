@@ -216,6 +216,11 @@
         color: white;
     }
 
+    .signup:hover{
+        color: #28D1C0;
+    }
+
+
 
 
     @media screen and (max-width: 768px) {
@@ -345,3 +350,45 @@
         font-size: 15px;
         padding: 20px 0px;
     }
+
+    /* notes form styling starts here  */
+
+    .noteForm{
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px;
+    }
+
+    .noteModal{
+        width: 68%;
+        background: rgb(221, 236, 246);
+    }
+
+    .noteText{
+        font-size: 25px;
+    }
+
+    .noteInput{
+        outline: none;
+    }
+
+    .saveBtn{
+        margin: 20px 0px;
+        font-size: 18px;
+        background: rgb(87, 6, 141);
+        color: white;
+        border: none;
+        padding: 7px 7px;
+        width: 5rem;
+        border-radius: 5px;
+   
+    }
+
+    .saveBtn:hover{
+        cursor: pointer;
+        background: rgb(105, 6, 105);
+    }
+
+
+
+    /* notes form styling ends here  */

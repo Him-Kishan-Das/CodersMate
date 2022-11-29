@@ -17,9 +17,7 @@ function showCategories(){
 }
 
 function showQueries(){
-    // let category = document.getElementById('categorySec');
-    // let query = document.getElementById('querySec');
-    // let reply = document.getElementById('replySec');
+
 
     var queryDisplay = query.style.display;
 
@@ -35,9 +33,6 @@ function showQueries(){
 }
 
 function showReplies(){
-    // let category = document.getElementById('categorySec');
-    // let query = document.getElementById('querySec');
-    // let reply = document.getElementById('replySec');
 
     var replyDisplay =reply.style.display;
 
