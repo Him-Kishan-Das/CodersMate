@@ -106,7 +106,7 @@
                 $result3 = mysqli_query($conn, $sql3);
                 $row = mysqli_fetch_assoc($result3);
                 $userName = $row['user_name'];
-                echo '<hr>
+                echo '
                     <div class="query">
                         <div class="replyDetails">
                             <pre class="replyDesc" style="white-space: pre-wrap">' . $replyDesc . '

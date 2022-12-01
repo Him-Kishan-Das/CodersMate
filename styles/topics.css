@@ -6,14 +6,17 @@
 .main{
     padding-top: 80px;
     display: flex;
+    margin: 0px 10px;
+
 }
 .section1{
     margin: 20px;
+    
 }
 
 .program{
     border: 2px solid black;
-    width: 55rem;
+    width: 51.5rem;
     padding: 20px;
     margin: 20px 0px 30px 0px;
 }
@@ -72,6 +75,7 @@
 
 .recent{
     width: 25rem;
+    margin-left: 1rem;
 }
 
 .recentHeading{

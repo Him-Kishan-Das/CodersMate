@@ -32,5 +32,11 @@ footer{
 }
 
 .contact_para{
-    padding: 20px;
+    padding-right: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.contact_para{
+
 }

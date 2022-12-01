@@ -45,7 +45,7 @@
                             <a href="./query.php?catName=' . $title . '"><button class="card_btn">View Queries</button></a>
                             <div class="stats">
                                 <div class="stats-details">
-                                    <p class="number">'. $numQuery .'</p>
+                                    <p class="number">' . $numQuery . '</p>
                                     <p class="stats-title">Queries</p>
                                 </div>
 
@@ -85,7 +85,7 @@
                         <a href="./query.php?catName=' . $title . '"><button class="card_btn">View Queries</button></a>
                             <div class="stats">
                                 <div class="stats-details">
-                                    <p class="number">'. $numQuery .'</p>
+                                    <p class="number">' . $numQuery . '</p>
                                     <p class="stats-title">Queries</p>
                                 </div>
 
@@ -128,7 +128,7 @@
                                     </div>
                                     <div class="userDetails">
                                         <div class="userImage"></div>
-                                        <p class="userName">'. $userName .'</p>
+                                        <p class="userName">' . $userName . '</p>
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +172,6 @@
     </div>
 
 
-    </div>
 
 
     <?php

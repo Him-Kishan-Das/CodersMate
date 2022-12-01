@@ -5,6 +5,8 @@
 
 .container{
     padding-top: 72px;
+    width: 93%;
+    margin: 0 auto;
 }
 
 .block {
@@ -125,12 +127,18 @@
 
 .query{
     display: flex;
-    margin: 15px 0px;
+    margin: 30px 0px;
+}
+
+.prof{
+    display: flex;
+    padding: 10px 0px;
 }
 
 .userProfile{
-    width: 2.5rem;
-    height: 2rem;
+    width: 2rem;
+    height: 1.5rem;
+    padding-right: 5px;
 }
 
 .queryDetails{
@@ -139,8 +147,9 @@
 
 .queryTitle{
     color: rgb(10, 124, 231);
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
+
 }
 
 
@@ -151,7 +160,7 @@
 
 .queryDesc{
     color: rgb(68, 68, 68);
-    padding-top: 5px;
+    padding-top: 8px;
 }
 
 .userName{

@@ -1,5 +1,5 @@
 <?php
-        $username = $_GET['userid'];
+$username = $_GET['userid'];
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +19,99 @@
     include './Components/dbconnect.php';
 
     ?>
-
     <div class="adminnav">
         <?php
         include './Components/Navbar.php';
         ?>
     </div>
+
+
+    <!-- Adding categories  -->
+    <?php
+    if (isset($_POST['add'])) {
+        $catName = $_POST['categoryName'];
+        $catType = $_POST['categoryType'];
+        $catDesc = $_POST['categoryDesc'];
+
+        $select = "SELECT * FROM `categories` ORDER BY category_id DESC LIMIT 1";
+        $catresult = mysqli_query($conn, $select);
+        $row3 = mysqli_fetch_assoc($catresult);
+        $catid = $row3['category_id'];
+        $catid++;
+
+        $insert = "INSERT INTO `categories` (`category_id`, `category_name`, `category_description`, `category_type`, `created`) VALUES ('$catid', '$catName','$catDesc',  '$catType',current_timestamp())";
+        $final = mysqli_query($conn, $insert);
+        $alert = true;
+        if ($alert == true) {
+            echo '<div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                        <strong>Category Added Successfully!</strong>
+                    </div>';
+        }
+    }
+
+    // updating categories 
+    if (isset($_POST['updateCat'])) {
+        $title = $_POST['catTitle'];
+        $desc = $_POST['catDesc'];
+        $id = $_POST['catid'];
+        $update = "UPDATE `categories` SET `category_name` = '$title', `category_description` = '$desc' WHERE category_id = '$id'";
+        $updateQuery = mysqli_query($conn, $update);
+        $alert = true;
+        if($alert){
+            echo '<div class="alert" style="background: blue">
+                        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                        <strong>Category Updated Successfully!</strong>
+                    </div>';
+        }
+    }
+
+
+    //deleting categories
+    if (isset($_POST['deleteCat'])) {
+        $deleteid = $_POST['catid'];
+        $deleteCat = "DELETE FROM `categories` WHERE category_id = '$deleteid'";
+        mysqli_query($conn, $deleteCat);
+        $alert = true;
+        if($alert){
+            echo '<div class="alert" style="background: red">
+                        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                        <strong>Category Deleted Successfully!</strong>
+                    </div>';
+        }
+    }
+
+
+    // Deleting queries
+    if (isset($_POST['delete'])) {
+        $deleteId = $_POST['id'];
+        $query = "DELETE FROM `queries` WHERE query_id = $deleteId";
+        $result = mysqli_query($conn, $query);
+        $alert = true;
+        if($alert){
+            echo '<div class="alert" style="background: red">
+                    <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                    <strong>Query Deleted Successfully!</strong>
+                </div>';
+        }
+    }
+
+
+    // Deleting replies 
+    if (isset($_POST['replyDelete'])) {
+        $replyDeleteId = $_POST['replyid'];
+        $deleteReply = "DELETE FROM `replies` WHERE reply_id = $replyDeleteId";
+        $deleteResult = mysqli_query($conn, $deleteReply);
+        $alert = true;
+        if($alert){
+            echo '<div class="alert" style="background: red">
+                        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                        <strong>Replies Deleted Successfully!</strong>
+                    </div>';
+        }
+    }
+
+    ?>
 
     <!-- Header Section  -->
     <div class="header">
@@ -41,24 +128,7 @@
             <button class="adminBtn" id="ReplyBtn" onclick="showReplies()">Replies</button>
         </div>
 
-        <?php
-        if (isset($_POST['add'])) {
-            $catName = $_POST['categoryName'];
-            $catType = $_POST['categoryType'];
-            $catDesc = $_POST['categoryDesc'];
 
-            $select = "SELECT * FROM `categories` ORDER BY category_id DESC LIMIT 1";
-            $catresult = mysqli_query($conn, $select);
-            $row3 = mysqli_fetch_assoc($catresult);
-            $catid = $row3['category_id'];
-            $catid++;
-
-            $insert = "INSERT INTO `categories` (`category_id`, `category_name`, `category_description`, `category_type`, `created`) VALUES ('$catid', '$catName','$catDesc',  '$catType',current_timestamp())";
-            $final = mysqli_query($conn, $insert);
-        }
-
-
-        ?>
         <div id="categorySec" class="section2">
             <form class="categoryForm" method="post">
                 <div class="category">
@@ -87,36 +157,19 @@
 
             <?php
 
-            // updating categories 
-            if(isset($_POST['updateCat'])){
-                $title = $_POST['catTitle'];
-                $desc = $_POST['catDesc'];
-                $id = $_POST['catid'];
-                $update = "UPDATE `categories` SET `category_name` = '$title', `category_description` = '$desc' WHERE category_id = '$id'";
-                $updateQuery = mysqli_query($conn, $update);
-            }
-
-
-            //deleting categories
-            if(isset($_POST['deleteCat'])){
-                $deleteid = $_POST['catid'];
-                $deleteCat = "DELETE FROM `categories` WHERE category_id = '$deleteid'";
-                mysqli_query($conn, $deleteCat);
-            }
-
             $sql4 = "SELECT * FROM `categories`";
             $result4 = mysqli_query($conn, $sql4);
-            while($row4 = mysqli_fetch_assoc($result4)){
+            while ($row4 = mysqli_fetch_assoc($result4)) {
 
-            echo '<form class="categories" method="post">
+                echo '<form class="categories" method="post">
                 <label for="catTitle" class="categoriesText">Title</label>
-                <input class="categoryInput" value="'. $row4['category_name'] .'" name="catTitle">
+                <input class="categoryInput" value="' . $row4['category_name'] . '" name="catTitle">
 
                 <label for="catDesc" class="categoriesText">Description</label>
-                <textarea class="categoryInput" name="catDesc">'. $row4['category_description'] .'</textarea>
+                <textarea class="categoryInput" name="catDesc">' . $row4['category_description'] . '</textarea>
 
 
-                <input type="hidden" name="catid" value="'. $row4['category_id'] .'">
+                <input type="hidden" name="catid" value="' . $row4['category_id'] . '">
                 <div class="catbtns">
                     <button id="updateCat" class="btn" name="updateCat">Update</button>
                     <button id="deleteCat" class="btn" name="deleteCat">Delete</button>
@@ -134,12 +187,7 @@
 
         <?php
 
-        // Deleting 
-        if (isset($_POST['delete'])) {
-            $deleteId = $_POST['id'];
-            $query = "DELETE FROM `queries` WHERE query_id = $deleteId";
-            $result = mysqli_query($conn, $query);
-        }
+        
 
         $sql = "SELECT * FROM `queries` ORDER BY query_time DESC LIMIT 10";
         $result = mysqli_query($conn, $sql);
@@ -178,12 +226,7 @@
 
         <?php
 
-        // deleting replies 
-        if (isset($_POST['replyDelete'])) {
-            $replyDeleteId = $_POST['replyid'];
-            $deleteReply = "DELETE FROM `replies` WHERE reply_id = $replyDeleteId";
-            $deleteResult = mysqli_query($conn, $deleteReply);
-        }
+        
 
 
         $sql1 = "SELECT * FROM `replies` ORDER BY reply_time DESC LIMIT 14";

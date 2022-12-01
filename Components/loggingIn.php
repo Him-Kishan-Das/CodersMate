@@ -13,6 +13,10 @@
                 $_SESSION['logIn'] = true;
                 $_SESSION['userEmail'] = $loginEmail;
                 $_SESSION['userId'] = $row['user_id'];
+                $role = $row['user_role'];
+                if($role == "admin"){
+                    $_SESSION['admin'] = true;
+                }
                 echo "logging successful";
                 header("Location: /CodersMate/home.php");
             }
@@ -20,6 +24,10 @@
                 $_SESSION['logIn'] = false;
                 header("Location: /CodersMate/home.php");
             }
+        }
+        else{
+            $_SESSION['logIn'] = false;
+            header("Location: /CodersMate/home.php");
         }
     }
 ?>

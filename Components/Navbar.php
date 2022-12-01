@@ -93,7 +93,7 @@ if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
                     </div>                
                 ';
 
-    if ($role == "admin") {
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) {
         echo '<a class="drop_down_link" href="./admin.php?userid=' . $user_id . '&username=' . $userName . '">
                         <img class="drop_down_img" src="icons\screwdriver-wrench-solid.svg">
                         Admin

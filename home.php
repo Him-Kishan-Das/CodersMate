@@ -14,7 +14,18 @@
     <?php
     include './Components/dbconnect.php';
     include './Components/Navbar.php';
+
+    session_start();
+
+    if(isset($_SESSION['logIn']) && $_SESSION['logIn'] == "true"){
+        echo '<div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+        <strong>Query Submitted Successfully!</strong>
+    </div>';
+    }
     ?>
+
+    
 
     
 

@@ -110,14 +110,17 @@ $cat_name = $_GET['catName'];
                 $result2 = mysqli_query($conn, $sql2);
                 $numReplies = mysqli_num_rows($result2);
 
-                echo '<hr>
+                echo '
                         <div class="query">
-                            <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
+                            
                             <div class="queryDetails">
                                 <h3 ><a class="queryTitle" href="./replies.php?catName=' . $cat_name . '&queryId=' . $id . '"> ' . $title . ' </a>
                                 </h3>
-                                <p class="queryDesc">' . substr($desc, 0, 100) . '...</p>
-                                <p class="userName">' . $userName . ' &nbsp; ' . $query_time . '</p>
+                                <p class="queryDesc">' . substr($desc, 0, 200) . '...</p>
+                                <div class="prof">
+                                    <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
+                                    <p class="userName">' . $userName . ' &nbsp; ' . $query_time . '</p>
+                                </div>
                             </div>
                             <div class="queryStats">
                                 <h4 class="queryStatsTitle">Replies: &nbsp;</h4>
