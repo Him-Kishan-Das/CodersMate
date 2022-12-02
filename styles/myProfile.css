@@ -9,9 +9,12 @@ body{
     /* background: rgb(243, 230, 213); */
 }
 
+.container{
+    padding-top: 5rem;
+}
+
 .main{
     margin: 0px 80px;
-    padding-top: 6rem;
 }
 
 .profileUsernameSection{
@@ -123,6 +126,7 @@ body{
     cursor: pointer;
     text-decoration: underline;
     color: rgb(14, 151, 19);
+
 }
 
 .showBtn:active{
@@ -282,3 +286,33 @@ body{
 
 
 /* section3 styling ends here  */
+
+/* alert starts here  */
+
+.alert {
+    padding: 20px;
+    background-color: #0bce28;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: -10px;
+  }
+  
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+ 
+  .closebtn:hover {
+    color: black;
+  }
+
+
+  /* alert ends here  */

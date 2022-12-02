@@ -24,6 +24,74 @@ $userid = $_GET['userid'];
     include './Components/Navbar.php';
     ?>
 
+    <div class="container">
+
+        <?php
+
+        // profile update 
+        if (isset($_POST['profileUpdate'])) {
+            $realName = $_POST['realName'];
+            $gender = $_POST['gender'];
+            $state = $_POST['state'];
+            $city = $_POST['city'];
+            $country = $_POST['country'];
+
+            $sql = "UPDATE `users` SET `name` = '$realName', `gender` = '$gender', `state` = '$state', `city` = '$city', `country` = '$country' WHERE user_id = '$userid'";
+            $result = mysqli_query($conn, $sql);
+            $alert = true;
+            if ($alert) {
+                echo '<div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                        <strong>Profile Updated Successfully!</strong>
+                      </div>';
+            }
+        }
+
+        // query update 
+
+        if (isset($_POST['queryUpdate'])) {
+            $queryTitle = $_POST['queryTitle'];
+            $queryDesc = $_POST['queryDesc'];
+            $queryId = $_POST['queryId'];
+
+            $sql = "UPDATE `queries` SET `query_title` = '$queryTitle', `query_desc` = '$queryDesc' WHERE query_id = '$queryId'";
+            $result = mysqli_query($conn, $sql);
+
+            $alert = true;
+            if($alert){
+                echo '<div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                        <strong>Query Updated Successfully!</strong>
+                     </div>';
+            }
+        }
+
+        // reply update 
+
+        if (isset($_POST['replyUpdate'])) {
+
+
+            $replyDesc = $_POST['replyDesc'];
+            $replyId = $_POST['replyId'];
+
+            $sql = "UPDATE `replies` SET `reply_desc` = '$replyDesc' WHERE reply_id = '$replyId'";
+            $result = mysqli_query($conn, $sql);
+            $alert = true;
+            if ($alert) {
+                echo '<div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                        <strong>Reply Updated Successfully!</strong>
+                        </div>';
+            }
+        }
+
+
+        ?>
+
+    </div>
+
+
+
     <div class="main">
 
         <!-- Profile Section  -->
@@ -36,19 +104,7 @@ $userid = $_GET['userid'];
         </div>
 
 
-        <?php
-        if (isset($_POST['profileUpdate'])) {
-            $realName = $_POST['realName'];
-            $gender = $_POST['gender'];
-            $state = $_POST['state'];
-            $city = $_POST['city'];
-            $country = $_POST['country'];
 
-            $sql = "UPDATE `users` SET `name` = '$realName', `gender` = '$gender', `state` = '$state', `city` = '$city', `country` = '$country' WHERE user_id = '$userid'";
-            $result = mysqli_query($conn, $sql);
-        }
-
-        ?>
 
         <!-- Form Section  -->
         <div class="section2">
@@ -128,11 +184,11 @@ $userid = $_GET['userid'];
                     $queryTitle = $row['query_title'];
                     $queryDesc = $row['query_desc'];
                     $queryId = $row['query_id'];
-                    echo '<form action="Components\queryUpdate.php?userid=' . $userid . '&username=' . $userName . '" method="post" class="queryForm">
+                    echo '<form action="" method="post" class="queryForm">
                         <input type="hidden" class="queryid" name="queryId" value="' . $queryId . '">
                                 <input type="text" id="queryTitle" name="queryTitle" value="' . $queryTitle . '">
                                 <textarea name="queryDesc" id="queryDesc" cols="30" rows="3">' . $queryDesc . '</textarea>
-                                <button id="editBtn">Update</button>
+                                <button id="editBtn" name="queryUpdate">Update</button>
                             </form>';
                 }
                 ?>
@@ -151,12 +207,12 @@ $userid = $_GET['userid'];
                     $sql3 = "SELECT * FROM `queries` WHERE query_id = '$queryId'";
                     $result3 = mysqli_query($conn, $sql3);
                     $row1 = mysqli_fetch_assoc($result3);
-                    echo '<form action="Components\replyUpdate.php?userid=' . $userid . '&username=' . $userName . '" method="post" class="replyForm">
+                    echo '<form action="" method="post" class="replyForm">
                             <h3 ><a class="queryTitle" href="">' . $row1['query_title'] . '</a>
                             </h3>
                             <input type="hidden" class="replyid" name="replyId" value="' . $replyId . '">
                             <textarea name="replyDesc" id="replyDesc" cols="30" rows="3">' . $replyDesc . '</textarea>
-                            <button id="editBtn">Update</button>
+                            <button id="editBtn" name="replyUpdate">Update</button>
                         </form>';
                 }
                 ?>
@@ -165,7 +221,7 @@ $userid = $_GET['userid'];
             <!-- Note Section  -->
             <?php
             // Update Feature
-            if(isset($_POST['noteUpdate'])){
+            if (isset($_POST['noteUpdate'])) {
                 $noteDesc = $_POST['noteDesc'];
                 $noteId = $_POST['noteId'];
                 $noteUpdate = "UPDATE `notes` SET `note_desc` = '$noteDesc' WHERE `note_id` = '$noteId'";
@@ -173,7 +229,7 @@ $userid = $_GET['userid'];
             }
 
             // Delete Feature 
-            if(isset($_POST['noteDelete'])){
+            if (isset($_POST['noteDelete'])) {
                 $noteDeleteId = $_POST['noteId'];
                 $noteDelete = "DELETE FROM `notes` WHERE `note_id` = '$noteDeleteId'";
                 $noteDeleteQuery = mysqli_query($conn, $noteDelete);
@@ -191,7 +247,7 @@ $userid = $_GET['userid'];
 
                     echo '<form action="" method="post" class="noteSection">
                             <div class="noteBox">
-                            <input hidden name="noteId" value="'. $row2['note_id'] .'">
+                            <input hidden name="noteId" value="' . $row2['note_id'] . '">
                                 <textarea class="noteArea" name="noteDesc" id="" cols="30" rows="8">' . $row2['note_desc'] . '</textarea>
 
                                 <p class="time">' . $row2['note_time'] . '</p>
