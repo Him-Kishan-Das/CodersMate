@@ -85,6 +85,35 @@ $userid = $_GET['userid'];
             }
         }
 
+        // Update saved Notes 
+        if (isset($_POST['noteUpdate'])) {
+            $noteDesc = $_POST['noteDesc'];
+            $noteId = $_POST['noteId'];
+            $noteUpdate = "UPDATE `notes` SET `note_desc` = '$noteDesc' WHERE `note_id` = '$noteId'";
+            $noteUpdateQuery = mysqli_query($conn, $noteUpdate);
+            $alert = true;
+            if($alert){
+                echo '<div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                <strong>Note Updated Successfully!</strong>
+                </div>';
+            }
+        }
+
+        // Delete Feature 
+        if (isset($_POST['noteDelete'])) {
+            $noteDeleteId = $_POST['noteId'];
+            $noteDelete = "DELETE FROM `notes` WHERE `note_id` = '$noteDeleteId'";
+            $noteDeleteQuery = mysqli_query($conn, $noteDelete);
+            $alert = true;
+            if($alert){
+                echo '<div class="alert" style="background: red">
+                <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                <strong>Note Deleted Successfully!</strong>
+                </div>';
+            }
+        }
+
 
         ?>
 
@@ -157,7 +186,7 @@ $userid = $_GET['userid'];
                     </div>
                 </div>
 
-                <button class="profileSubmitBtn" id="updateBtn" name="profileUpdate" onsubmit="confirm('Are you sure you want to update?')">Update</button>
+                <button class="profileSubmitBtn" id="updateBtn" name="profileUpdate">Update</button>
 
             </form>
         </div>
@@ -221,19 +250,7 @@ $userid = $_GET['userid'];
             <!-- Note Section  -->
             <?php
             // Update Feature
-            if (isset($_POST['noteUpdate'])) {
-                $noteDesc = $_POST['noteDesc'];
-                $noteId = $_POST['noteId'];
-                $noteUpdate = "UPDATE `notes` SET `note_desc` = '$noteDesc' WHERE `note_id` = '$noteId'";
-                $noteUpdateQuery = mysqli_query($conn, $noteUpdate);
-            }
 
-            // Delete Feature 
-            if (isset($_POST['noteDelete'])) {
-                $noteDeleteId = $_POST['noteId'];
-                $noteDelete = "DELETE FROM `notes` WHERE `note_id` = '$noteDeleteId'";
-                $noteDeleteQuery = mysqli_query($conn, $noteDelete);
-            }
 
             ?>
 
@@ -254,7 +271,7 @@ $userid = $_GET['userid'];
                             </div>
                             <div class="noteBox1">
                                 <button id="noteUpdate" name="noteUpdate" class="noteBtn">Update</button>
-                                <button id="noteDelete" name="noteDelete" class="noteBtn" onClick=\"javascript: return confirm(\'Please confirm deletion\')";>Delete</button>
+                                <button id="noteDelete" name="noteDelete" class="noteBtn">Delete</button>
                             </div>
                         </form>';
                 }

@@ -83,8 +83,7 @@ body{
 }
 
 .profileSubmitBtn{
-    background-color: rgb(11, 190, 17);
-    border: none;
+    background-color: rgb(7, 159, 7);
     font-size: 20px;
     color: white;
     margin-top: 15px;
@@ -173,9 +172,8 @@ body{
 
 #editBtn{
     margin-left: 65rem;
-    background-color: rgb(11, 190, 17);
-    border: none;
-    font-size: 20px;
+    background-color: rgb(5, 169, 10);
+    font-size: 18px;
     color: white;
     margin-top: 5px;
     padding: 8px 15px;
@@ -267,7 +265,7 @@ body{
 }
 
 #noteUpdate{
-    background: rgb(0, 164, 0);
+    background: green;
     cursor: pointer;
 }
 
