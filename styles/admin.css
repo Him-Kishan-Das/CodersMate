@@ -360,3 +360,20 @@ body{
 
 
 /* alert styling ends here  */
+
+
+.error{
+    align-items: center;
+    margin: 7rem 30rem;
+}
+
+.caution_icon{
+    width: 10rem;
+    margin: 0 6rem;
+}
+
+.errorMessge{
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+}

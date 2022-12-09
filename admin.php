@@ -1,5 +1,6 @@
 <?php
-$username = $_GET['userid'];
+$adminUsername = $_GET['username'];
+
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +18,7 @@ $username = $_GET['userid'];
 
     <?php
     include './Components/dbconnect.php';
+    
 
     ?>
     <div class="adminnav">
@@ -28,6 +30,14 @@ $username = $_GET['userid'];
 
     <!-- Adding categories  -->
     <?php
+
+    $adminQuery = "SELECT * FROM `users` WHERE user_name = '$adminUsername'";
+    $adminResult = mysqli_query($conn, $adminQuery);
+    $admin = mysqli_fetch_assoc($adminResult);
+    $role = $admin['user_role'];
+
+    if($role == "admin"){
+
     if (isset($_POST['add'])) {
         $catName = $_POST['categoryName'];
         $catType = $_POST['categoryType'];
@@ -116,7 +126,7 @@ $username = $_GET['userid'];
     <!-- Header Section  -->
     <div class="header">
         <p class="headerTitle">ADMIN PANEL</p>
-        <p class="username"><b>admin:</b> <?php echo $username ?></p>
+        <p class="username"><b>admin:</b> <?php echo $adminUsername ?></p>
     </div>
 
     <!-- Section 2  -->
@@ -268,7 +278,18 @@ $username = $_GET['userid'];
                     </div>';
         }
 
+
+    }
+
+    else{
+        echo '<div class="error">
+                    <img class="caution_icon" src="./icons/triangle-exclamation-solid.svg" alt="caution">
+                    <p class="errorMessge">Access Denied - You are not an Admin.</p>
+                </div>';
+    }
         ?>
+
+
 
     </div>
 </body>
