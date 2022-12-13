@@ -112,8 +112,8 @@
                             <pre class="replyDesc" style="white-space: pre-wrap">' . $replyDesc . '
                             </pre>
                             <div class="user">
-                                <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
-                                <em><p class="userName">'. $userName .' &nbsp; </p>
+                                <img class="userProfile" src="./icons/userdefault.svg" alt="user profile">
+                                <em><p class="userName"><b>'. $userName .' &nbsp;</b></p>
                                 <p class="userName">' . $replyTime . '</p></em>
                             </div>
                         </div>

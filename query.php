@@ -118,8 +118,8 @@ $cat_name = $_GET['catName'];
                                 </h3>
                                 <p class="queryDesc">' . substr($desc, 0, 200) . '...</p>
                                 <div class="prof">
-                                    <img class="userProfile" src="./icons/userdefault.png" alt="user profile">
-                                    <p class="userName">' . $userName . ' &nbsp; ' . $query_time . '</p>
+                                    <img class="userProfile" src="./icons/userdefault.svg" alt="user profile">
+                                    <p class="userName"><b>' . $userName . '</b> &nbsp; ' . $query_time . '</p>
                                 </div>
                             </div>
                             <div class="queryStats">

@@ -136,9 +136,11 @@
 }
 
 .userProfile{
-    width: 2rem;
+    width: 1.2rem;
     height: 1.5rem;
     padding-right: 5px;
+    color: green;
+    margin-top: 3.7px;
 }
 
 .queryDetails{

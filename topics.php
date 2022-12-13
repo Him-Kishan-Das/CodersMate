@@ -120,14 +120,14 @@
                     $row1 = mysqli_fetch_assoc($result2);
                     $userName = $row1['user_name'];
                     echo '<div class="recentCard">
-                                <img src="" alt="">
+                                
                                 <div class="recentDetails">
-                                    <a href="./replies.php?catName=' . $catName . '&queryId=' . $query_id . '"><div class="recentTitle">' . $recentTitle . '</div></a>
+                                    <a id="recentLink" href="./replies.php?catName=' . $catName . '&queryId=' . $query_id . '"><div class="recentTitle">' . $recentTitle . '</div></a>
                                     <div class="recentDesc">
                                         ' . substr($recentDesc, 0, 50) . '...
                                     </div>
                                     <div class="userDetails">
-                                        <div class="userImage"></div>
+                                        <img src="icons\userdefault.svg" id="userImage">
                                         <p class="userName">' . $userName . '</p>
                                     </div>
                                 </div>

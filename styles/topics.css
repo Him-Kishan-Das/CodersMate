@@ -1,27 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.main{
+.main {
     padding-top: 80px;
     display: flex;
     margin: 0px 10px;
 
 }
-.section1{
+
+.section1 {
     margin: 20px;
-    
+
 }
 
-.program{
+.program {
     border: 2px solid black;
     width: 51.5rem;
     padding: 20px;
     margin: 20px 0px 30px 0px;
 }
 
-.card{
+.card {
     display: flex;
     width: 100%;
     background-color: rgb(198, 206, 243);
@@ -29,19 +30,19 @@
     margin-bottom: 10px;
 }
 
-.card-img{
+.card-img {
     width: 15rem;
     max-height: 13rem;
     padding-right: 20px;
 }
 
-.card-details{
+.card-details {
     display: flex;
     padding: 13px 0px;
     justify-content: space-between;
 }
 
-.card_btn{
+.card_btn {
     border: none;
     background-color: #28d1c0;
     color: white;
@@ -51,7 +52,7 @@
     border: solid #28d1c0;
 }
 
-.card_btn:hover{
+.card_btn:hover {
     background-color: transparent;
     border: solid #28d1c0;
     color: black;
@@ -59,12 +60,12 @@
     overflow: hidden;
 }
 
-.stats{
+.stats {
     display: flex;
     justify-content: space-evenly;
 }
 
-.stats-details{
+.stats-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,35 +74,62 @@
     color: rgb(66, 66, 66);
 }
 
-.recent{
-    width: 25rem;
-    margin-left: 1rem;
+/* Styling of recent query section starts here  */
+
+.recent {
+    width: 25.5rem;
+    margin-left: 0.5rem;
 }
 
-.recentHeading{
+.recentHeading {
     margin-top: 30px;
     margin-bottom: 10px;
 }
 
-.recentList{
+.recentList {
     border: solid 2px black;
 }
 
-.recentCard{
+.recentCard {
     background: #f8e2e4;
     border: solid 1px black;
     margin: 8px;
-    padding: 0px 6px;
+    padding: 8px 6px;
+}
+#recentLink{
+    text-decoration: none;
 }
 
-.recentTitle{
-    font-size: 17px;
+.recentTitle {
+    font-size: 18px;
+    color: #6302b2;
+    font-weight: 500;
 }
 
-.recentDesc{
+.recentTitle:hover{
+    color: #3b0469;
+}
+
+.recentDesc {
     font-size: 14px;
 }
 
-.userDetails{
+.userDetails {
+    margin-top: 5px;
     margin-left: 15rem;
+    display: flex;
 }
+
+#userImage{
+    width: 1.2rem;
+    padding-right: 4px;
+}
+
+.userName{
+    font-size: 13px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+
+/* styling of recent query section ends here  */
