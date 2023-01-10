@@ -14,6 +14,7 @@
     padding-top: 73px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     justify-content: space-evenly;
+    margin-top: -20px;
 }
 
 
@@ -318,5 +319,33 @@
 }
 
 /* End of Section 3 */
+
+/* alert starts here  */
+
+.alert {
+    padding: 20px;
+    background-color: #0bce28;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 28px;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+   
+  .closebtn:hover {
+    color: black;
+  }
+
+
+/* alert ends here  */
 
 

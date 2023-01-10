@@ -21,13 +21,12 @@
                 header("Location: /CodersMate/home.php");
             }
             else{
-                $_SESSION['logIn'] = false;
-                header("Location: /CodersMate/home.php");
+                // $_SESSION['logFail'] = true;
+                header("Location: /CodersMate/home.php?login=fail");
             }
         }
         else{
-            $_SESSION['logIn'] = false;
-            header("Location: /CodersMate/home.php");
+            header("Location: /CodersMate/home.php?login=fail");
         }
     }
 ?>

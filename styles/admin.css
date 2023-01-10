@@ -118,6 +118,7 @@ body{
     margin: 15px 30px;
     padding: 10px 14px;
     border-radius: 8px;
+    flex-direction: column;
 }
 
 .userProfile{
@@ -140,6 +141,11 @@ body{
     cursor: pointer;
     text-decoration: underline 1.3px;
 }
+
+/* .queryTitle:hover{
+    cursor: pointer;
+    text-decoration: underline;
+} */
 
 .queryDesc{
     color: rgb(68, 68, 68);
@@ -234,7 +240,6 @@ body{
 }
 
 .categories{
-    /* background: rgb(204, 170, 244); */
     display: flex;
     flex-direction: column;
     padding: 20px 35px;
@@ -303,16 +308,12 @@ body{
     font-size: 17px;
 }
 
-.queryTitle:hover{
-    cursor: pointer;
-    text-decoration: underline;
-}
 
 .user{
     display: flex;
     padding: 10px 0px;
     position: relative;
-    left: 60rem;
+    left: 65rem;
     width: 19rem;
 }
 

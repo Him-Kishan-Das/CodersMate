@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +12,21 @@
 <body>
 
     <?php
+
+    
     include './Components/dbconnect.php';
     include './Components/Navbar.php';
 
     session_start();
+
+        if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
+            echo ' <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                        <strong>Your login is Successfull</strong>
+                    </div>';
+        } 
     ?>
 
-    
-
-    
 
     <!-- Section - 1 -->
     <div class="section">
@@ -35,28 +40,28 @@
                     <button class="section_searchBtn">Search</button>
                 </div>
             </form>
-            
+
         </div>
         <img class="section_img" src="./img/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg" alt="codingImage">
     </div>
 
     <?php
-        $sql = "SELECT * FROM `categories`";
-        $result = mysqli_query($conn, $sql);
-        $topics = mysqli_num_rows($result);
+    $sql = "SELECT * FROM `categories`";
+    $result = mysqli_query($conn, $sql);
+    $topics = mysqli_num_rows($result);
 
-        $sql1 = "SELECT * FROM `queries` ";
-        $result1 = mysqli_query($conn, $sql1);
-        $queries = mysqli_num_rows($result1);
-        
+    $sql1 = "SELECT * FROM `queries` ";
+    $result1 = mysqli_query($conn, $sql1);
+    $queries = mysqli_num_rows($result1);
 
-        $sql2 = "SELECT * FROM `replies`";
-        $result2 = mysqli_query($conn, $sql2);
-        $replies = mysqli_num_rows($result2);
 
-        $sql3 = "SELECT * FROM `users`";
-        $result3 = mysqli_query($conn, $sql3);
-        $users = mysqli_num_rows($result3);
+    $sql2 = "SELECT * FROM `replies`";
+    $result2 = mysqli_query($conn, $sql2);
+    $replies = mysqli_num_rows($result2);
+
+    $sql3 = "SELECT * FROM `users`";
+    $result3 = mysqli_query($conn, $sql3);
+    $users = mysqli_num_rows($result3);
 
     ?>
 
@@ -100,8 +105,8 @@
         </div>
     </div>
 
-    <?php  
-        include './Components/Footer.php'
+    <?php
+    include './Components/Footer.php'
     ?>
 </body>
 
