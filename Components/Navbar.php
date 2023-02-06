@@ -14,7 +14,7 @@ echo '<nav class="navbar">
     <ul class="navbar-elements">
         <li class="nav-link"><a class="nav-link-elem" href="./home.php">Home</a></li>
         <li class="nav-link"><a class="nav-link-elem" href="#">About</a></li>
-        <li class="nav-link"><a class="nav-link-elem" href="./topics.php">Topics</a></li>
+        <li class="nav-link"><a class="nav-link-elem" href="./topics.php">Categories</a></li>
         <!-- Drop down element of the navbar  -->
         <div class="dropdown nav-link">
           <button class="dropbtn" onclick="dropDown()">Top Categories
@@ -38,7 +38,7 @@ echo '</div>
             <!-- Search Bar -->
             <form action="./search.php" method="GET">
                 <div class="search">  
-                    <input type="text" name="search" id="search-bar" placeholder="Search questions...">
+                    <input type="text" name="search" id="search-bar" placeholder="Search queries...">
                     <button class="search_btn">
                         <img class="search-icon" src="./icons/magnifying-glass-solid.svg" alt="search icon">
                     </button>
@@ -140,7 +140,7 @@ echo '</div>
 echo '<script type="text/javascript">
 
 var modal = document.getElementById("myModal");
-console.log(modal);
+
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 

@@ -19,12 +19,22 @@
 
     session_start();
 
+    if($_SERVER["REQUEST_METHOD"] == "GET"){
         if (isset($_SESSION['logIn']) && $_SESSION['logIn'] == true) {
             echo ' <div class="alert">
                         <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
                         <strong>Your login is Successfull</strong>
                     </div>';
-        } 
+        }
+    }
+        else if(isset($_GET['login'])){
+                if($_GET['login']=='fail'){
+                    echo ' <div class="alert" style="background: red;">
+                                <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> 
+                                <strong>Wrong Login Credentials</strong>
+                            </div>';
+                }
+            }
     ?>
 
 

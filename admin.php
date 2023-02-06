@@ -105,8 +105,6 @@ $adminUsername = $_GET['username'];
             }
         }
 
-
-
         // updating categories 
         if (isset($_POST['updateCat'])) {
             $title = $_POST['catTitle'];
@@ -310,6 +308,8 @@ $adminUsername = $_GET['username'];
             $sql2 = "SELECT * FROM `queries` WHERE query_id='$reply_query_Id'";
             $result2 = mysqli_query($conn, $sql2);
             $row1 = mysqli_fetch_assoc($result2);
+            $catName2 = $row1['query_cat_name'];
+            $id2 = $row1['query_id'];
 
 
             $sql3 = "SELECT * FROM `users` WHERE user_id = $replyUserId";
@@ -318,7 +318,7 @@ $adminUsername = $_GET['username'];
 
             echo '<div class="reply">
                         <div class="replyDetails">
-                        <h3 ><a class="queryTitle" href="">' . $row1['query_title'] . '</a></h3>
+                        <h3 ><a class="queryTitle" href="./replies.php?catName=' . $catName2 . '&queryId=' . $id2 . '">' . $row1['query_title'] . '</a></h3>
                         
                             <pre class="replyDesc" style="white-space: pre-wrap">' . $replyDesc . '
                                     </pre>

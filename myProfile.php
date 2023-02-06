@@ -236,13 +236,16 @@ $userid = $_GET['userid'];
                     $sql3 = "SELECT * FROM `queries` WHERE query_id = '$queryId'";
                     $result3 = mysqli_query($conn, $sql3);
                     $row1 = mysqli_fetch_assoc($result3);
+                    $catName1 = $row1['query_cat_name'];
+                    $id1 = $row1['query_id'];
+                    
                     echo '<form action="" method="post" class="replyForm">
-                            <h3 ><a class="queryTitle" href="">' . $row1['query_title'] . '</a>
-                            </h3>
-                            <input type="hidden" class="replyid" name="replyId" value="' . $replyId . '">
-                            <textarea name="replyDesc" id="replyDesc" cols="30" rows="3">' . $replyDesc . '</textarea>
-                            <button id="editBtn" name="replyUpdate">Update</button>
-                        </form>';
+                                <h3 ><a class="queryTitle" href="./replies.php?catName=' . $catName1 . '&queryId=' . $id1 . '">' . $row1['query_title'] . '</a>
+                                </h3>
+                                <input type="hidden" class="replyid" name="replyId" value="' . $replyId . '">
+                                <textarea name="replyDesc" id="replyDesc" cols="30" rows="3">' . $replyDesc . '</textarea>
+                                <button id="editBtn" name="replyUpdate">Update</button>
+                          </form>';
                 }
                 ?>
             </div>

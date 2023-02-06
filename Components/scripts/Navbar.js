@@ -1,4 +1,4 @@
-console.log('I am working fine')
+
 
 var modal = document.getElementById("myModal");
 
